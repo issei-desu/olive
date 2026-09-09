@@ -2,7 +2,7 @@ const routes = [
   ['home','ホーム'],['register','レジ'],['admin','管理'],['kitchen','厨房'],['seats','座席'],['customer','お客さん表示']
 ];
 export function pageShell(page, content) {
-  return `<header class="header"><div class="header-inner"><a class="brand" href="/">文化祭レジ</a><nav class="nav">${routes.map(([id,label])=>`<a class="${page===id?'active':''}" href="/${id==='home'?'':id+'.html'}">${label}</a>`).join('')}</nav><span class="operator">担当: ${escapeHtml(operator())}</span></div></header><main class="container ${page==='customer'?'customer':''}">${content}</main>`;
+  return `<header class="header"><div class="header-inner"><a class="brand" href="./">文化祭レジ</a><nav class="nav">${routes.map(([id,label])=>`<a class="${page===id?'active':''}" href="./${id==='home'?'':id+'.html'}">${label}</a>`).join('')}</nav><span class="operator">担当: ${escapeHtml(operator())}</span></div></header><main class="container ${page==='customer'?'customer':''}">${content}</main>`;
 }
 export function operator() { return localStorage.getItem('operatorName') || ''; }
 export function requireOperator() {

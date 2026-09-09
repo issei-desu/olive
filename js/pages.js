@@ -9,7 +9,7 @@ const renderers = { home:homePage, register:registerPage, admin:adminPage, kitch
 renderers[page]?.().catch(showError);
 
 async function homePage(){
-  app.innerHTML=pageShell(page,`<h1>ホーム</h1><div class="grid">${[['register','レジ','注文・会計・座席選択'],['kitchen','厨房','調理中の注文を確認'],['seats','座席管理','席状況の確認・空席化'],['customer','お客さん向け表示','会計内容を大きく表示'],['admin','管理','商品・在庫・座席数を編集']].map(([id,title,desc])=>`<a class="card home-card" href="/${id}.html"><strong>${title}</strong><span>${desc}</span></a>`).join('')}</div><div class="card" style="margin-top:20px"><h2>担当者</h2><div class="actions"><strong id="current-name">${escapeHtml(operator())}</strong><button id="change-name" class="btn">名前を変更</button></div></div>`);
+  app.innerHTML=pageShell(page,`<h1>ホーム</h1><div class="grid">${[['register','レジ','注文・会計・座席選択'],['kitchen','厨房','調理中の注文を確認'],['seats','座席管理','席状況の確認・空席化'],['customer','お客さん向け表示','会計内容を大きく表示'],['admin','管理','商品・在庫・座席数を編集']].map(([id,title,desc])=>`<a class="card home-card" href="./${id}.html"><strong>${title}</strong><span>${desc}</span></a>`).join('')}</div><div class="card" style="margin-top:20px"><h2>担当者</h2><div class="actions"><strong id="current-name">${escapeHtml(operator())}</strong><button id="change-name" class="btn">名前を変更</button></div></div>`);
   document.querySelector('#change-name').onclick=()=>{const name=prompt('新しい担当者名',operator());if(name?.trim()){setOperator(name);location.reload()}};
 }
 
