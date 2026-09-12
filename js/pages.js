@@ -37,7 +37,7 @@ function homePage(){
 }
 
 // -------------------------------------------------------------
-// 2. レジ画面（区分連動ペア数セット割 & 手動割引対応）
+// 2. レジ画面（区分連動ペア割 & 任意手動割引）
 // -------------------------------------------------------------
 async function registerPage(){
   let products = [], cart = {}, cash = '', manualDiscount = 0;
@@ -56,7 +56,6 @@ async function registerPage(){
           <h2>注文内容</h2>
           <div id="cart-list"></div>
 
-          <!-- 割引設定エリア -->
           <div style="margin: 12px 0; padding: 10px; background: #fdf6e2; border-radius: 6px; border: 1px dashed #e0b422;">
             <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.9em; margin-bottom: 6px;">
               <span id="auto-discount-label">セット割 (食べ物+飲み物)</span>
@@ -314,7 +313,7 @@ async function registerPage(){
 }
 
 // -------------------------------------------------------------
-// 3. 厨房画面（商品チェックマーク付き）
+// 3. 厨房画面（シンプルなチェックボックスのみ）
 // -------------------------------------------------------------
 async function kitchenPage(){
   app.innerHTML = pageShell(page, `
@@ -343,42 +342,36 @@ async function kitchenPage(){
             <span style="font-size:0.9em;color:#666;">${o.orderedAt ? new Date(o.orderedAt).toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'}) : ''}</span>
           </div>
 
-          <ul class="kitchen-item-list">
+          <div style="margin: 12px 0;">
             ${o.items.map((i, idx) => {
               const itemKey = `${o.orderNumber}-${i.productId || idx}`;
-              const isChecked = checkedKeys.has(itemKey);
+              const isChecked = checkedKeys.has(itemKey) ? 'checked' : '';
               return `
-                <li class="kitchen-item ${isChecked ? 'is-done' : ''}" data-key="${itemKey}">
-                  <div style="display:flex;align-items:center;">
-                    <span class="kitchen-checkbox">✓</span>
-                    <span class="item-text"><strong>${escapeHtml(i.name)}</strong> × ${i.quantity}</span>
-                  </div>
-                  <span style="font-size:0.8em;color:#888;">${isChecked ? '済' : '未'}</span>
-                </li>
+                <label style="display:flex;align-items:center;gap:10px;padding:8px 0;font-size:1.05em;cursor:pointer;">
+                  <input type="checkbox" class="kitchen-chk" data-key="${itemKey}" ${isChecked} style="width:22px;height:22px;cursor:pointer;">
+                  <span><strong>${escapeHtml(i.name)}</strong> × ${i.quantity}</span>
+                </label>
               `;
             }).join('')}
-          </ul>
+          </div>
 
           <button class="btn primary serve" data-order="${o.orderNumber}" style="width:100%;margin-top:8px">提供完了</button>
         </div>
       `).join('')}</div>`;
 
-      el.querySelectorAll('.kitchen-item').forEach(itemEl => {
-        itemEl.onclick = () => {
-          const key = itemEl.dataset.key;
-          if (checkedKeys.has(key)) {
-            checkedKeys.delete(key);
-            itemEl.classList.remove('is-done');
-            itemEl.querySelector('.kitchen-checkbox').textContent = '✓';
-            itemEl.querySelector('span:last-child').textContent = '未';
-          } else {
+      // チェック状態を保持
+      el.querySelectorAll('.kitchen-chk').forEach(chk => {
+        chk.onchange = () => {
+          const key = chk.dataset.key;
+          if (chk.checked) {
             checkedKeys.add(key);
-            itemEl.classList.add('is-done');
-            itemEl.querySelector('span:last-child').textContent = '済';
+          } else {
+            checkedKeys.delete(key);
           }
         };
       });
 
+      // 提供完了
       el.querySelectorAll('.serve').forEach(b => {
         b.onclick = async () => {
           b.disabled = true;
