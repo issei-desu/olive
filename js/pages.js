@@ -37,10 +37,10 @@ function homePage(){
 }
 
 // -------------------------------------------------------------
-// 2. レジ画面（フォーカス外れ修正済み）
+// 2. レジ画面（区分連動ペア数セット割 & 手動割引対応）
 // -------------------------------------------------------------
 async function registerPage(){
-  let products = [], cart = {}, cash = '';
+  let products = [], cart = {}, cash = '', manualDiscount = 0;
   const data = await api('getRegisterData');
   products = data.products;
 
@@ -55,14 +55,36 @@ async function registerPage(){
         <aside class="card">
           <h2>注文内容</h2>
           <div id="cart-list"></div>
+
+          <!-- 割引設定エリア -->
+          <div style="margin: 12px 0; padding: 10px; background: #fdf6e2; border-radius: 6px; border: 1px dashed #e0b422;">
+            <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.9em; margin-bottom: 6px;">
+              <span id="auto-discount-label">セット割 (食べ物+飲み物)</span>
+              <strong id="auto-discount-val" style="color:#d32f2f;">-¥0</strong>
+            </div>
+            <div class="field" style="margin:0;">
+              <label style="font-size:0.85em;">手動割引 (円)</label>
+              <input id="manual-discount" inputmode="numeric" type="number" min="0" placeholder="0" style="padding:6px 10px;">
+            </div>
+          </div>
+
           <div class="field">
             <label>預かり金</label>
             <input id="cash" inputmode="numeric" type="number" min="0" placeholder="0">
           </div>
+
           <div class="money-panel">
             <div class="money-line">
-              <span>合計</span>
-              <strong id="total-val">¥0</strong>
+              <span>小計</span>
+              <span id="subtotal-val">¥0</span>
+            </div>
+            <div class="money-line">
+              <span>割引合計</span>
+              <span id="total-discount-val" style="color:#d32f2f;">-¥0</span>
+            </div>
+            <div class="money-line" style="font-size:1.2em; border-top:1px solid #ddd; padding-top:6px;">
+              <span>お支払い合計</span>
+              <strong id="total-val" style="color:#1976d2;">¥0</strong>
             </div>
             <div class="money-line">
               <span>預かり金</span>
@@ -73,6 +95,7 @@ async function registerPage(){
               <strong id="change-val">—</strong>
             </div>
           </div>
+
           <button id="to-seat" class="btn primary" style="width:100%" disabled>座席を選ぶ</button>
           <button id="clear" class="btn" style="width:100%;margin-top:9px">取消</button>
         </aside>
@@ -86,10 +109,19 @@ async function registerPage(){
       sync();
     };
 
+    const discountInput = document.querySelector('#manual-discount');
+    discountInput.oninput = (e) => {
+      manualDiscount = Math.max(0, Number(e.target.value || 0));
+      updateTotals();
+      sync();
+    };
+
     document.querySelector('#clear').onclick = () => {
       cart = {};
       cash = '';
+      manualDiscount = 0;
       cashInput.value = '';
+      discountInput.value = '';
       drawProductsAndCart();
       updateTotals();
       sync();
@@ -100,13 +132,21 @@ async function registerPage(){
 
   function drawProductsAndCart() {
     const prodList = document.querySelector('#products-list');
-    prodList.innerHTML = products.map(p => `
-      <button class="card product ${cart[p.id] ? 'in-cart' : ''}" data-add="${p.id}" ${p.stock <= 0 ? 'disabled' : ''}>
-        <strong>${escapeHtml(p.name)}</strong>
-        <span>${money(p.price)}</span>
-        <small>在庫 ${p.stock}</small>
-      </button>
-    `).join('');
+    prodList.innerHTML = products.map(p => {
+      const badge = p.category === '飲み物'
+        ? '<span style="background:#e3f2fd;color:#1976d2;padding:2px 6px;border-radius:4px;font-size:0.75em;margin-right:4px;">飲</span>'
+        : (p.category === '食べ物'
+          ? '<span style="background:#fbe9e7;color:#d84315;padding:2px 6px;border-radius:4px;font-size:0.75em;margin-right:4px;">食</span>'
+          : '<span style="background:#f5f5f5;color:#616161;padding:2px 6px;border-radius:4px;font-size:0.75em;margin-right:4px;">他</span>');
+
+      return `
+        <button class="card product ${cart[p.id] ? 'in-cart' : ''}" data-add="${p.id}" ${p.stock <= 0 ? 'disabled' : ''}>
+          <strong>${badge}${escapeHtml(p.name)}</strong>
+          <span>${money(p.price)}</span>
+          <small>在庫 ${p.stock}</small>
+        </button>
+      `;
+    }).join('');
 
     prodList.querySelectorAll('[data-add]').forEach(b => {
       b.onclick = () => {
@@ -157,12 +197,42 @@ async function registerPage(){
     });
   }
 
-  function updateTotals() {
+  function calculateBill() {
     const entries = products.filter(p => cart[p.id]).map(p => ({ ...p, quantity: cart[p.id] }));
-    const total = entries.reduce((s, p) => s + p.price * p.quantity, 0);
-    const change = cash !== '' ? Number(cash) - total : null;
+    const subtotal = entries.reduce((s, p) => s + p.price * p.quantity, 0);
 
-    document.querySelector('#total-val').textContent = money(total);
+    let foodCount = 0, drinkCount = 0;
+    entries.forEach(p => {
+      if (p.category === '飲み物') {
+        drinkCount += p.quantity;
+      } else if (p.category === '食べ物') {
+        foodCount += p.quantity;
+      }
+    });
+
+    const setPairs = Math.min(foodCount, drinkCount);
+    const autoDiscount = setPairs * 100;
+
+    const totalDiscount = autoDiscount + manualDiscount;
+    const finalTotal = Math.max(0, subtotal - totalDiscount);
+    const change = cash !== '' ? Number(cash) - finalTotal : null;
+
+    return { entries, subtotal, setPairs, autoDiscount, manualDiscount, totalDiscount, finalTotal, change };
+  }
+
+  function updateTotals() {
+    const { entries, subtotal, setPairs, autoDiscount, totalDiscount, finalTotal, change } = calculateBill();
+
+    document.querySelector('#subtotal-val').textContent = money(subtotal);
+    
+    const labelEl = document.querySelector('#auto-discount-label');
+    if (labelEl) {
+      labelEl.textContent = setPairs > 0 ? `セット割 (${setPairs}組)` : 'セット割 (食べ物+飲み物)';
+    }
+
+    document.querySelector('#auto-discount-val').textContent = `-¥${autoDiscount.toLocaleString()}`;
+    document.querySelector('#total-discount-val').textContent = `-¥${totalDiscount.toLocaleString()}`;
+    document.querySelector('#total-val').textContent = money(finalTotal);
     document.querySelector('#cash-val').textContent = cash === '' ? '—' : money(cash);
     document.querySelector('#change-val').textContent = change === null ? '—' : (change < 0 ? '不足' : money(change));
 
@@ -174,16 +244,16 @@ async function registerPage(){
   function sync() {
     clearTimeout(syncTimer);
     syncTimer = setTimeout(() => {
+      const { finalTotal, change } = calculateBill();
       const items = products.filter(p => cart[p.id]).map(p => ({ name: p.name, price: p.price, quantity: cart[p.id] }));
-      const total = items.reduce((s, x) => s + x.price * x.quantity, 0);
       api('updateDisplay', {
         operator: operator(),
         display: {
           phase: 'checkout',
           items,
-          total,
+          total: finalTotal,
           cash: Number(cash || 0),
-          change: Number(cash || 0) - total
+          change: change || 0
         }
       }).catch(showError);
     }, 250);
@@ -204,14 +274,25 @@ async function registerPage(){
         const seat = Number(b.dataset.seat);
         b.disabled = true;
         try {
+          const { finalTotal, totalDiscount } = calculateBill();
           const items = products.filter(p => cart[p.id]).map(p => ({ productId: p.id, quantity: cart[p.id] }));
-          const result = await api('createOrder', { operator: operator(), seatNumber: seat, cash: Number(cash), items });
+          
+          const result = await api('createOrder', {
+            operator: operator(),
+            seatNumber: seat,
+            cash: Number(cash),
+            items,
+            discount: totalDiscount
+          });
+
           d.close();
           d.remove();
-          alert(`注文番号 #${result.orderNumber} を確定しました`);
+          alert(`注文番号 #${result.orderNumber} を確定しました\n合計: ¥${finalTotal.toLocaleString()} (おつり: ¥${result.change.toLocaleString()})`);
           cart = {};
           cash = '';
+          manualDiscount = 0;
           document.querySelector('#cash').value = '';
+          document.querySelector('#manual-discount').value = '';
           const refreshed = await api('getRegisterData');
           products = refreshed.products;
           drawProductsAndCart();
@@ -233,7 +314,7 @@ async function registerPage(){
 }
 
 // -------------------------------------------------------------
-// 3. 厨房画面
+// 3. 厨房画面（商品チェックマーク付き）
 // -------------------------------------------------------------
 async function kitchenPage(){
   app.innerHTML = pageShell(page, `
@@ -244,6 +325,8 @@ async function kitchenPage(){
     <div id="kitchen-orders" style="margin-top:16px;"></div>
   `);
 
+  const checkedKeys = new Set();
+
   async function load(){
     try {
       const orders = await api('getKitchenOrders');
@@ -252,22 +335,59 @@ async function kitchenPage(){
         el.innerHTML = '<p class="empty">提供待ちの注文はありません</p>';
         return;
       }
-      el.innerHTML = `<div class="grid">${orders.map(o=>`
+
+      el.innerHTML = `<div class="grid">${orders.map(o => `
         <div class="card">
           <div style="display:flex;justify-content:space-between;align-items:center">
-            <h2>#${o.orderNumber} (席 ${o.seatNumber})</h2>
-            <span>${o.orderedAt ? new Date(o.orderedAt).toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'}) : ''}</span>
+            <h2 style="margin:0;">#${o.orderNumber} (席 ${o.seatNumber})</h2>
+            <span style="font-size:0.9em;color:#666;">${o.orderedAt ? new Date(o.orderedAt).toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'}) : ''}</span>
           </div>
-          <ul>${o.items.map(i=>`<li><strong>${escapeHtml(i.name)}</strong> × ${i.quantity}</li>`).join('')}</ul>
-          <button class="btn primary serve" data-order="${o.orderNumber}" style="width:100%;margin-top:12px">提供完了</button>
+
+          <ul class="kitchen-item-list">
+            ${o.items.map((i, idx) => {
+              const itemKey = `${o.orderNumber}-${i.productId || idx}`;
+              const isChecked = checkedKeys.has(itemKey);
+              return `
+                <li class="kitchen-item ${isChecked ? 'is-done' : ''}" data-key="${itemKey}">
+                  <div style="display:flex;align-items:center;">
+                    <span class="kitchen-checkbox">✓</span>
+                    <span class="item-text"><strong>${escapeHtml(i.name)}</strong> × ${i.quantity}</span>
+                  </div>
+                  <span style="font-size:0.8em;color:#888;">${isChecked ? '済' : '未'}</span>
+                </li>
+              `;
+            }).join('')}
+          </ul>
+
+          <button class="btn primary serve" data-order="${o.orderNumber}" style="width:100%;margin-top:8px">提供完了</button>
         </div>
       `).join('')}</div>`;
+
+      el.querySelectorAll('.kitchen-item').forEach(itemEl => {
+        itemEl.onclick = () => {
+          const key = itemEl.dataset.key;
+          if (checkedKeys.has(key)) {
+            checkedKeys.delete(key);
+            itemEl.classList.remove('is-done');
+            itemEl.querySelector('.kitchen-checkbox').textContent = '✓';
+            itemEl.querySelector('span:last-child').textContent = '未';
+          } else {
+            checkedKeys.add(key);
+            itemEl.classList.add('is-done');
+            itemEl.querySelector('span:last-child').textContent = '済';
+          }
+        };
+      });
 
       el.querySelectorAll('.serve').forEach(b => {
         b.onclick = async () => {
           b.disabled = true;
           try {
-            await api('serveOrder', { operator: operator(), orderNumber: Number(b.dataset.order) });
+            const orderNum = Number(b.dataset.order);
+            await api('serveOrder', { operator: operator(), orderNumber: orderNum });
+            for (const k of Array.from(checkedKeys)) {
+              if (k.startsWith(`${orderNum}-`)) checkedKeys.delete(k);
+            }
             load();
           } catch(e) {
             b.disabled = false;
@@ -336,7 +456,7 @@ async function seatsPage(){
 }
 
 // -------------------------------------------------------------
-// 5. 注文履歴画面（新規追加）
+// 5. 注文履歴画面
 // -------------------------------------------------------------
 async function historyPage(){
   app.innerHTML = pageShell(page, `
@@ -386,7 +506,7 @@ async function historyPage(){
 }
 
 // -------------------------------------------------------------
-// 6. 管理画面（全データ初期化リセット機能付き）
+// 6. 管理画面（区分設定・リセット機能付き）
 // -------------------------------------------------------------
 async function adminPage(){
   const data = await api('getAdminData');
@@ -398,18 +518,30 @@ async function adminPage(){
       <div class="grid">
         <section class="card">
           <h2>商品管理</h2>
+          <div style="font-size:0.8em;color:#666;display:flex;gap:10px;margin-bottom:8px;padding:0 5px;">
+            <span style="flex:2;">商品名</span>
+            <span style="flex:1;">区分</span>
+            <span style="width:70px;">価格</span>
+            <span style="width:60px;">在庫</span>
+            <span style="width:60px;"></span>
+          </div>
           <div class="products-edit">
             ${products.map(p=>`
-              <div class="field product-row" data-id="${p.id}">
-                <input class="p-name" value="${escapeHtml(p.name)}">
-                <input class="p-price" type="number" min="0" value="${p.price}" style="max-width:100px">
-                <input class="p-stock" type="number" min="0" value="${p.stock}" style="max-width:90px">
-                <button class="btn save-prod">保存</button>
+              <div class="field product-row" data-id="${p.id}" style="display:flex;gap:6px;align-items:center;margin-bottom:8px;">
+                <input class="p-name" value="${escapeHtml(p.name)}" style="flex:2;padding:6px;">
+                <select class="p-category" style="flex:1;padding:6px;">
+                  <option value="食べ物" ${p.category === '食べ物' ? 'selected' : ''}>食べ物</option>
+                  <option value="飲み物" ${p.category === '飲み物' ? 'selected' : ''}>飲み物</option>
+                  <option value="その他" ${p.category === 'その他' ? 'selected' : ''}>その他</option>
+                </select>
+                <input class="p-price" type="number" min="0" value="${p.price}" style="width:70px;padding:6px;">
+                <input class="p-stock" type="number" min="0" value="${p.stock}" style="width:60px;padding:6px;">
+                <button class="btn save-prod" style="padding:6px 10px;">保存</button>
               </div>
             `).join('')}
           </div>
           <div class="actions" style="margin-top:15px">
-            <button id="add-prod" class="btn">＋ 新規商品追加</button>
+            <button id="add-prod" class="btn primary">＋ 新規商品追加</button>
           </div>
         </section>
 
@@ -440,6 +572,7 @@ async function adminPage(){
             operator: operator(),
             id: row.dataset.id,
             name: row.querySelector('.p-name').value,
+            category: row.querySelector('.p-category').value,
             price: Number(row.querySelector('.p-price').value),
             stock: Number(row.querySelector('.p-stock').value)
           });
@@ -451,10 +584,13 @@ async function adminPage(){
     document.querySelector('#add-prod').onclick = async () => {
       const name = prompt('商品名を入力してください');
       if (!name) return;
+      const catInput = prompt('区分を入力してください（1: 食べ物, 2: 飲み物, 3: その他）', '1');
+      const category = catInput === '2' ? '飲み物' : (catInput === '3' ? 'その他' : '食べ物');
       const price = Number(prompt('価格を入力してください', '100'));
       const stock = Number(prompt('初期在庫数を入力してください', '50'));
+
       try {
-        await api('saveProduct', { operator: operator(), name, price, stock });
+        await api('saveProduct', { operator: operator(), name, category, price, stock });
         const refreshed = await api('getAdminData');
         products = refreshed.products;
         render();
