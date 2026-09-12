@@ -246,6 +246,11 @@
       "phase": "checkout",
       "items": [
         {
+          "name": "クリームチーズタルト",
+          "price": 200,
+          "quantity": 1
+        },
+        {
           "name": "プリンアラモード",
           "price": 200,
           "quantity": 1
@@ -256,7 +261,7 @@
           "quantity": 1
         }
       ],
-      "total": 300,
+      "total": 500,
       "cash": 0,
       "change": 0
     }
