@@ -256,12 +256,17 @@
           "quantity": 1
         },
         {
+          "name": "Iceコーヒー",
+          "price": 200,
+          "quantity": 1
+        },
+        {
           "name": "Hot紅茶",
           "price": 200,
           "quantity": 1
         }
       ],
-      "total": 500,
+      "total": 600,
       "cash": 0,
       "change": 0
     }
