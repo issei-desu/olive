@@ -131,21 +131,75 @@
   ],
   "orders": [],
   "seats": [
-    { "number": 1, "status": "空席", "orderNumber": null, "orderedAt": null },
-    { "number": 2, "status": "空席", "orderNumber": null, "orderedAt": null },
-    { "number": 3, "status": "空席", "orderNumber": null, "orderedAt": null },
-    { "number": 4, "status": "空席", "orderNumber": null, "orderedAt": null },
-    { "number": 5, "status": "空席", "orderNumber": null, "orderedAt": null },
-    { "number": 6, "status": "空席", "orderNumber": null, "orderedAt": null },
-    { "number": 7, "status": "空席", "orderNumber": null, "orderedAt": null },
-    { "number": 8, "status": "空席", "orderNumber": null, "orderedAt": null },
-    { "number": 9, "status": "空席", "orderNumber": null, "orderedAt": null },
-    { "number": 10, "status": "空席", "orderNumber": null, "orderedAt": null }
+    {
+      "number": 1,
+      "status": "空席",
+      "orderNumber": null,
+      "orderedAt": null
+    },
+    {
+      "number": 2,
+      "status": "空席",
+      "orderNumber": null,
+      "orderedAt": null
+    },
+    {
+      "number": 3,
+      "status": "空席",
+      "orderNumber": null,
+      "orderedAt": null
+    },
+    {
+      "number": 4,
+      "status": "空席",
+      "orderNumber": null,
+      "orderedAt": null
+    },
+    {
+      "number": 5,
+      "status": "空席",
+      "orderNumber": null,
+      "orderedAt": null
+    },
+    {
+      "number": 6,
+      "status": "空席",
+      "orderNumber": null,
+      "orderedAt": null
+    },
+    {
+      "number": 7,
+      "status": "空席",
+      "orderNumber": null,
+      "orderedAt": null
+    },
+    {
+      "number": 8,
+      "status": "空席",
+      "orderNumber": null,
+      "orderedAt": null
+    },
+    {
+      "number": 9,
+      "status": "空席",
+      "orderNumber": null,
+      "orderedAt": null
+    },
+    {
+      "number": 10,
+      "status": "空席",
+      "orderNumber": null,
+      "orderedAt": null
+    }
   ],
   "settings": {
     "nextOrderNumber": 1,
     "display": {
-      "phase": "idle"
+      "phase": "checkout",
+      "items": [],
+      "total": 0,
+      "cash": 0,
+      "change": 0
     }
   }
 }
