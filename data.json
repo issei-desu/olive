@@ -44,7 +44,7 @@
       "id": "deea262b-9819-4b07-a7a9-8fd59be9bd9f",
       "name": "プリンアラモード",
       "price": 200,
-      "stock": 1000,
+      "stock": 999,
       "category": "食べ物",
       "active": true
     },
@@ -92,7 +92,7 @@
       "id": "61f2288c-ffb4-4045-b56e-d64843e1253a",
       "name": "Iceココア",
       "price": 200,
-      "stock": 1000,
+      "stock": 999,
       "category": "飲み物",
       "active": true
     },
@@ -149,6 +149,33 @@
           "subtotal": 600
         }
       ]
+    },
+    {
+      "orderNumber": 2,
+      "seatNumber": 5,
+      "orderedAt": "2026-09-12T19:08:06.446Z",
+      "status": "提供待ち",
+      "total": 300,
+      "cash": 300,
+      "change": 0,
+      "operator": "ichi",
+      "servedAt": null,
+      "items": [
+        {
+          "productId": "deea262b-9819-4b07-a7a9-8fd59be9bd9f",
+          "name": "プリンアラモード",
+          "price": 200,
+          "quantity": 1,
+          "subtotal": 200
+        },
+        {
+          "productId": "61f2288c-ffb4-4045-b56e-d64843e1253a",
+          "name": "Iceココア",
+          "price": 200,
+          "quantity": 1,
+          "subtotal": 200
+        }
+      ]
     }
   ],
   "seats": [
@@ -178,9 +205,9 @@
     },
     {
       "number": 5,
-      "status": "空席",
-      "orderNumber": null,
-      "orderedAt": null
+      "status": "提供待ち",
+      "orderNumber": 2,
+      "orderedAt": "2026-09-12T19:08:06.446Z"
     },
     {
       "number": 6,
@@ -214,24 +241,11 @@
     }
   ],
   "settings": {
-    "nextOrderNumber": 2,
+    "nextOrderNumber": 3,
     "display": {
-      "phase": "checkout",
-      "items": [
-        {
-          "name": "プリンアラモード",
-          "price": 200,
-          "quantity": 1
-        },
-        {
-          "name": "Iceココア",
-          "price": 200,
-          "quantity": 1
-        }
-      ],
-      "total": 300,
-      "cash": 3,
-      "change": -297
+      "phase": "complete",
+      "orderNumber": 2,
+      "seatNumber": 5
     }
   }
 }
