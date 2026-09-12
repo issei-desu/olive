@@ -285,19 +285,8 @@
     "nextOrderNumber": 4,
     "display": {
       "phase": "checkout",
-      "items": [
-        {
-          "name": "マカロン",
-          "price": 200,
-          "quantity": 1
-        },
-        {
-          "name": "プリンアラモード",
-          "price": 200,
-          "quantity": 1
-        }
-      ],
-      "total": 400,
+      "items": [],
+      "total": 0,
       "cash": 0,
       "change": 0
     }
