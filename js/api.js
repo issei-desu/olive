@@ -1,11 +1,11 @@
 // ==========================================
-// GitHub data.json API サーバー連携モジュール
+// GitHub data.json & Excel 自動同期モジュール
 // ==========================================
 const GITHUB_OWNER = 'issei-desu';
 const GITHUB_REPO = 'olive';
 const GITHUB_FILE_PATH = 'data.json';
+const GITHUB_EXCEL_PATH = 'sales_log.xlsx';
 
-// トークンはブラウザのLocalStorageに保存（GitHubへ公開されない安全な方法）
 function getGithubToken() {
   let token = localStorage.getItem('olive_gh_token');
   if (!token) {
@@ -21,6 +21,18 @@ function getGithubToken() {
 }
 
 let cachedSha = null;
+let cachedExcelSha = null;
+
+// SheetJS ライブラリの動的ロード
+function ensureXLSX() {
+  return new Promise((resolve) => {
+    if (window.XLSX) return resolve();
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js';
+    script.onload = () => resolve();
+    document.head.appendChild(script);
+  });
+}
 
 // GitHub から最新の data.json を取得
 async function fetchDb() {
@@ -35,16 +47,112 @@ async function fetchDb() {
   if (!res.ok) {
     if (res.status === 401) {
       localStorage.removeItem('olive_gh_token');
-      throw new Error('トークンが無効です。再読み込みして正しいトークンを入力してください');
+      throw new Error('トークンが無効です。再読み込みして再入力してください');
     }
-    throw new Error('データの取得に失敗しました (GitHub通信エラー)');
+    throw new Error('データ取得に失敗しました (GitHub通信エラー)');
   }
   const data = await res.json();
   cachedSha = data.sha;
 
-  // UTF-8 デコード（日本語対応）
   const content = decodeURIComponent(escape(atob(data.content.replace(/\s/g, ''))));
   return JSON.parse(content);
+}
+
+// バックグラウンドで Excel (sales_log.xlsx) を生成して GitHub に自動保存
+async function syncExcelLog(orders, token) {
+  try {
+    await ensureXLSX();
+    if (!window.XLSX || !orders) return;
+
+    // Excel SHAの取得（初回のみまたは存在確認）
+    if (!cachedExcelSha) {
+      try {
+        const getRes = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_EXCEL_PATH}?ref=main`, {
+          headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json' }
+        });
+        if (getRes.ok) {
+          const fileInfo = await getRes.json();
+          cachedExcelSha = fileInfo.sha;
+        }
+      } catch (e) {}
+    }
+
+    // 1. 「注文一覧」シート用データ
+    const orderRows = [
+      ["注文番号", "席番号", "注文日時", "商品内訳", "小計 (円)", "割引 (円)", "支払合計 (円)", "預かり金 (円)", "おつり (円)", "状態", "担当者"]
+    ];
+
+    // 2. 「明細一覧」シート用データ（商品ごと1行）
+    const itemRows = [
+      ["注文番号", "席番号", "日時", "商品名", "単価 (円)", "数量", "小計 (円)", "担当者"]
+    ];
+
+    orders.forEach(o => {
+      const itemsSummary = (o.items || []).map(i => `${i.name}×${i.quantity}`).join(', ');
+      const subtotal = (o.items || []).reduce((s, i) => s + (i.price * i.quantity), 0);
+      const timeStr = o.orderedAt ? new Date(o.orderedAt).toLocaleString('ja-JP') : '';
+
+      orderRows.push([
+        `#${o.orderNumber}`,
+        `席 ${o.seatNumber}`,
+        timeStr,
+        itemsSummary,
+        subtotal,
+        subtotal - (o.total || 0),
+        o.total || 0,
+        o.cash || 0,
+        o.change || 0,
+        o.status || '提供待ち',
+        o.operator || ''
+      ]);
+
+      (o.items || []).forEach(i => {
+        itemRows.push([
+          `#${o.orderNumber}`,
+          `席 ${o.seatNumber}`,
+          timeStr,
+          i.name,
+          i.price,
+          i.quantity,
+          i.price * i.quantity,
+          o.operator || ''
+        ]);
+      });
+    });
+
+    const wb = XLSX.utils.book_new();
+    const wsOrders = XLSX.utils.aoa_to_sheet(orderRows);
+    const wsItems = XLSX.utils.aoa_to_sheet(itemRows);
+
+    XLSX.utils.book_append_sheet(wb, wsOrders, "注文サマリー");
+    XLSX.utils.book_append_sheet(wb, wsItems, "商品別明細ログ");
+
+    // バイナリ (Base64) 変換
+    const b64Excel = XLSX.write(wb, { bookType: 'xlsx', type: 'base64' });
+
+    // GitHub へ PUT
+    const putRes = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_EXCEL_PATH}`, {
+      method: 'PUT',
+      headers: {
+        'Accept': 'application/vnd.github.v3+json',
+        'Authorization': `token ${token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        message: 'Auto-sync sales log to Excel via POS',
+        content: b64Excel,
+        sha: cachedExcelSha,
+        branch: 'main'
+      })
+    });
+
+    if (putRes.ok) {
+      const putData = await putRes.json();
+      cachedExcelSha = putData.content.sha;
+    }
+  } catch (err) {
+    console.warn('バックグラウンドExcel同期エラー (処理は継続します):', err);
+  }
 }
 
 // GitHub の data.json に保存（コミット）
@@ -75,49 +183,42 @@ async function saveDb(db, message = 'Update data.json via POS') {
   }
   const result = await res.json();
   cachedSha = result.content.sha;
+
+  // 注文データの更新があれば、裏側でバックグラウンドExcel同期を実行（待たせない）
+  if (db.orders && Array.isArray(db.orders)) {
+    syncExcelLog(db.orders, token);
+  }
+
   return true;
 }
 
 // ==========================================
-// 各ページ共通 API インターフェース
+// 共通 API インターフェース
 // ==========================================
 async function api(action, payload = {}) {
   const db = await fetchDb();
 
-  // 1. レジ画面用データ
   if (action === 'getRegisterData') {
     return { products: (db.products || []).filter(p => p.active) };
   }
-
-  // 2. 座席一覧
   if (action === 'getSeats') {
     return db.seats || [];
   }
-
-  // 3. 厨房の提供待ち一覧
   if (action === 'getKitchenOrders') {
     return (db.orders || []).filter(o => o.status === '提供待ち').sort((a, b) => a.orderNumber - b.orderNumber);
   }
-
-  // 4. 提供済み注文履歴
   if (action === 'getOrderHistory') {
     return (db.orders || []).filter(o => o.status === '提供済み').slice(-50).reverse();
   }
-
-  // 5. 管理画面用データ
   if (action === 'getAdminData') {
     return {
       products: db.products || [],
       seatCount: (db.seats || []).length
     };
   }
-
-  // 6. 客席ディスプレイ情報
   if (action === 'getDisplay') {
     return (db.settings && db.settings.display) || { phase: 'idle' };
   }
-
-  // 7. 客席ディスプレイ更新
   if (action === 'updateDisplay') {
     if (!db.settings) db.settings = {};
     db.settings.display = payload.display;
@@ -125,36 +226,28 @@ async function api(action, payload = {}) {
     return true;
   }
 
-  // 8. 注文作成
   if (action === 'createOrder') {
     if (!db.settings) db.settings = {};
     const orderNum = Number(db.settings.nextOrderNumber || 1);
     db.settings.nextOrderNumber = orderNum + 1;
     const now = new Date().toISOString();
 
-    // 在庫引き落とし
     payload.items.forEach(item => {
       const p = db.products.find(x => x.id === item.productId);
       if (p) {
-        if (p.stock < item.quantity) {
-          throw new Error(`${p.name} の在庫が不足しています`);
-        }
+        if (p.stock < item.quantity) throw new Error(`${p.name} の在庫が不足しています`);
         p.stock -= item.quantity;
       }
     });
 
-    // 席状態の更新
     const seat = db.seats.find(s => s.number === payload.seatNumber);
     if (seat) {
-      if (seat.status !== '空席') {
-        throw new Error(`席 ${payload.seatNumber} は空席ではありません`);
-      }
+      if (seat.status !== '空席') throw new Error(`席 ${payload.seatNumber} は空席ではありません`);
       seat.status = '提供待ち';
       seat.orderNumber = orderNum;
       seat.orderedAt = now;
     }
 
-    // 注文詳細
     const itemRows = payload.items.map(item => {
       const p = db.products.find(x => x.id === item.productId);
       return {
@@ -190,7 +283,6 @@ async function api(action, payload = {}) {
     return { orderNumber: orderNum, total, change };
   }
 
-  // 9. 厨房：提供完了
   if (action === 'serveOrder') {
     const order = (db.orders || []).find(o => o.orderNumber === Number(payload.orderNumber));
     if (order) {
@@ -198,14 +290,11 @@ async function api(action, payload = {}) {
       order.servedAt = new Date().toISOString();
     }
     const seat = (db.seats || []).find(s => s.orderNumber === Number(payload.orderNumber));
-    if (seat) {
-      seat.status = '提供済み';
-    }
+    if (seat) seat.status = '提供済み';
     await saveDb(db, `Serve Order #${payload.orderNumber} by ${payload.operator}`);
     return true;
   }
 
-  // 10. 座席管理：空席化
   if (action === 'clearSeat') {
     const seat = (db.seats || []).find(s => s.number === Number(payload.seatNumber));
     if (seat) {
@@ -217,7 +306,6 @@ async function api(action, payload = {}) {
     return true;
   }
 
-  // 11. 管理画面：商品保存
   if (action === 'saveProduct') {
     if (!Array.isArray(db.products)) db.products = [];
     if (payload.id) {
@@ -242,7 +330,6 @@ async function api(action, payload = {}) {
     return true;
   }
 
-  // 12. 管理画面：総座席数変更
   if (action === 'setSeatCount') {
     const count = Number(payload.count);
     if (!Array.isArray(db.seats)) db.seats = [];
@@ -258,7 +345,6 @@ async function api(action, payload = {}) {
     return db.seats;
   }
 
-  // 13. 管理画面：データ初期化（リセット）
   if (action === 'resetAllData') {
     db.orders = [];
     (db.seats || []).forEach(s => {
