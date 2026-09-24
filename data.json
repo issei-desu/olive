@@ -20,7 +20,7 @@
       "id": "cfd53d80-457b-4459-b5a9-b794ded1c403",
       "name": "クリームチーズタルト",
       "price": 200,
-      "stock": 998,
+      "stock": 997,
       "category": "食べ物",
       "active": true
     },
@@ -44,7 +44,7 @@
       "id": "deea262b-9819-4b07-a7a9-8fd59be9bd9f",
       "name": "プリンアラモード",
       "price": 200,
-      "stock": 998,
+      "stock": 997,
       "category": "食べ物",
       "active": true
     },
@@ -68,7 +68,7 @@
       "id": "6347e328-6c2a-4330-92ea-d861c1b0ecd1",
       "name": "Hot紅茶",
       "price": 200,
-      "stock": 999,
+      "stock": 998,
       "category": "飲み物",
       "active": true
     },
@@ -197,6 +197,40 @@
           "subtotal": 200
         }
       ]
+    },
+    {
+      "orderNumber": 3,
+      "seatNumber": 2,
+      "orderedAt": "2026-09-24T20:34:44.185Z",
+      "status": "提供待ち",
+      "total": 500,
+      "cash": 500,
+      "change": 0,
+      "operator": "いちiPad",
+      "servedAt": null,
+      "items": [
+        {
+          "productId": "cfd53d80-457b-4459-b5a9-b794ded1c403",
+          "name": "クリームチーズタルト",
+          "price": 200,
+          "quantity": 1,
+          "subtotal": 200
+        },
+        {
+          "productId": "deea262b-9819-4b07-a7a9-8fd59be9bd9f",
+          "name": "プリンアラモード",
+          "price": 200,
+          "quantity": 1,
+          "subtotal": 200
+        },
+        {
+          "productId": "6347e328-6c2a-4330-92ea-d861c1b0ecd1",
+          "name": "Hot紅茶",
+          "price": 200,
+          "quantity": 1,
+          "subtotal": 200
+        }
+      ]
     }
   ],
   "seats": [
@@ -208,9 +242,9 @@
     },
     {
       "number": 2,
-      "status": "空席",
-      "orderNumber": null,
-      "orderedAt": null
+      "status": "提供待ち",
+      "orderNumber": 3,
+      "orderedAt": "2026-09-24T20:34:44.185Z"
     },
     {
       "number": 3,
@@ -262,29 +296,11 @@
     }
   ],
   "settings": {
-    "nextOrderNumber": 3,
+    "nextOrderNumber": 4,
     "display": {
-      "phase": "checkout",
-      "items": [
-        {
-          "name": "クリームチーズタルト",
-          "price": 200,
-          "quantity": 1
-        },
-        {
-          "name": "プリンアラモード",
-          "price": 200,
-          "quantity": 1
-        },
-        {
-          "name": "Hot紅茶",
-          "price": 200,
-          "quantity": 1
-        }
-      ],
-      "total": 500,
-      "cash": 5,
-      "change": -495
+      "phase": "complete",
+      "orderNumber": 3,
+      "seatNumber": 2
     }
   }
 }
