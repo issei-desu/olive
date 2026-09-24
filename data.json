@@ -365,11 +365,16 @@
           "name": "カラメルカスタード",
           "price": 200,
           "quantity": 1
+        },
+        {
+          "name": "オレンジジュース",
+          "price": 200,
+          "quantity": 1
         }
       ],
-      "total": 200,
-      "cash": 0,
-      "change": 0
+      "total": 300,
+      "cash": 5,
+      "change": -295
     }
   }
 }
