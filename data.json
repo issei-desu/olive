@@ -129,102 +129,13 @@
       "active": true
     }
   ],
-  "orders": [
-    {
-      "orderNumber": 1,
-      "seatNumber": 3,
-      "orderedAt": "2026-09-12T18:59:19.447Z",
-      "status": "提供済み",
-      "total": 600,
-      "cash": 2000,
-      "change": 1400,
-      "operator": "いち",
-      "servedAt": "2026-09-12T19:07:16.770Z",
-      "items": [
-        {
-          "productId": "cfb9113e-022e-4a97-96a2-0655bd968cb4",
-          "name": "メロンクリームソーダ",
-          "price": 200,
-          "quantity": 3,
-          "subtotal": 600
-        }
-      ]
-    },
-    {
-      "orderNumber": 2,
-      "seatNumber": 5,
-      "orderedAt": "2026-09-12T19:08:06.446Z",
-      "status": "提供待ち",
-      "total": 300,
-      "cash": 300,
-      "change": 0,
-      "operator": "ichi",
-      "servedAt": null,
-      "items": [
-        {
-          "productId": "deea262b-9819-4b07-a7a9-8fd59be9bd9f",
-          "name": "プリンアラモード",
-          "price": 200,
-          "quantity": 1,
-          "subtotal": 200
-        },
-        {
-          "productId": "61f2288c-ffb4-4045-b56e-d64843e1253a",
-          "name": "Iceココア",
-          "price": 200,
-          "quantity": 1,
-          "subtotal": 200
-        }
-      ]
-    },
-    {
-      "orderNumber": 3,
-      "seatNumber": 1,
-      "orderedAt": "2026-09-12T19:18:26.354Z",
-      "status": "提供待ち",
-      "total": 1000,
-      "cash": 4999,
-      "change": 3999,
-      "operator": "ichi",
-      "servedAt": null,
-      "items": [
-        {
-          "productId": "cfd53d80-457b-4459-b5a9-b794ded1c403",
-          "name": "クリームチーズタルト",
-          "price": 200,
-          "quantity": 1,
-          "subtotal": 200
-        },
-        {
-          "productId": "deea262b-9819-4b07-a7a9-8fd59be9bd9f",
-          "name": "プリンアラモード",
-          "price": 200,
-          "quantity": 1,
-          "subtotal": 200
-        },
-        {
-          "productId": "b6b522b8-1895-441f-bf29-d8921632df90",
-          "name": "Iceコーヒー",
-          "price": 200,
-          "quantity": 3,
-          "subtotal": 600
-        },
-        {
-          "productId": "6347e328-6c2a-4330-92ea-d861c1b0ecd1",
-          "name": "Hot紅茶",
-          "price": 200,
-          "quantity": 1,
-          "subtotal": 200
-        }
-      ]
-    }
-  ],
+  "orders": [],
   "seats": [
     {
       "number": 1,
-      "status": "提供待ち",
-      "orderNumber": 3,
-      "orderedAt": "2026-09-12T19:18:26.354Z"
+      "status": "空席",
+      "orderNumber": null,
+      "orderedAt": null
     },
     {
       "number": 2,
@@ -234,9 +145,9 @@
     },
     {
       "number": 3,
-      "status": "提供済み",
-      "orderNumber": 1,
-      "orderedAt": "2026-09-12T18:59:19.447Z"
+      "status": "空席",
+      "orderNumber": null,
+      "orderedAt": null
     },
     {
       "number": 4,
@@ -246,9 +157,9 @@
     },
     {
       "number": 5,
-      "status": "提供待ち",
-      "orderNumber": 2,
-      "orderedAt": "2026-09-12T19:08:06.446Z"
+      "status": "空席",
+      "orderNumber": null,
+      "orderedAt": null
     },
     {
       "number": 6,
@@ -282,29 +193,9 @@
     }
   ],
   "settings": {
-    "nextOrderNumber": 4,
+    "nextOrderNumber": 1,
     "display": {
-      "phase": "checkout",
-      "items": [
-        {
-          "name": "チョコケーキ",
-          "price": 200,
-          "quantity": 4
-        },
-        {
-          "name": "午後の紅茶 ミルクティー",
-          "price": 200,
-          "quantity": 1
-        },
-        {
-          "name": "メロンクリームソーダ",
-          "price": 200,
-          "quantity": 1
-        }
-      ],
-      "total": 1000,
-      "cash": 0,
-      "change": 0
+      "phase": "idle"
     }
   }
 }
