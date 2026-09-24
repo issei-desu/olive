@@ -195,7 +195,11 @@
   "settings": {
     "nextOrderNumber": 1,
     "display": {
-      "phase": "idle"
+      "phase": "checkout",
+      "items": [],
+      "total": 0,
+      "cash": 0,
+      "change": 0
     }
   }
 }
