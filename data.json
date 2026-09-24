@@ -4,7 +4,7 @@
       "id": "112cb3cf-f947-4c20-86da-1f1ae9577b9b",
       "name": "カラメルカスタード",
       "price": 200,
-      "stock": 1000,
+      "stock": 999,
       "category": "食べ物",
       "active": true
     },
@@ -116,7 +116,7 @@
       "id": "8143731f-790f-47b4-8ef9-f388058886de",
       "name": "オレンジジュース",
       "price": 200,
-      "stock": 998,
+      "stock": 997,
       "category": "飲み物",
       "active": true
     },
@@ -292,6 +292,33 @@
           "subtotal": 200
         }
       ]
+    },
+    {
+      "orderNumber": 6,
+      "seatNumber": 10,
+      "orderedAt": "2026-09-24T21:44:09.396Z",
+      "status": "提供待ち",
+      "total": 300,
+      "cash": 500,
+      "change": 200,
+      "operator": "いち",
+      "servedAt": null,
+      "items": [
+        {
+          "productId": "112cb3cf-f947-4c20-86da-1f1ae9577b9b",
+          "name": "カラメルカスタード",
+          "price": 200,
+          "quantity": 1,
+          "subtotal": 200
+        },
+        {
+          "productId": "8143731f-790f-47b4-8ef9-f388058886de",
+          "name": "オレンジジュース",
+          "price": 200,
+          "quantity": 1,
+          "subtotal": 200
+        }
+      ]
     }
   ],
   "seats": [
@@ -351,30 +378,17 @@
     },
     {
       "number": 10,
-      "status": "空席",
-      "orderNumber": null,
-      "orderedAt": null
+      "status": "提供待ち",
+      "orderNumber": 6,
+      "orderedAt": "2026-09-24T21:44:09.396Z"
     }
   ],
   "settings": {
-    "nextOrderNumber": 6,
+    "nextOrderNumber": 7,
     "display": {
-      "phase": "checkout",
-      "items": [
-        {
-          "name": "カラメルカスタード",
-          "price": 200,
-          "quantity": 1
-        },
-        {
-          "name": "オレンジジュース",
-          "price": 200,
-          "quantity": 1
-        }
-      ],
-      "total": 300,
-      "cash": 5,
-      "change": -295
+      "phase": "complete",
+      "orderNumber": 6,
+      "seatNumber": 10
     }
   }
 }
