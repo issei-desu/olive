@@ -285,19 +285,8 @@
     "nextOrderNumber": 4,
     "display": {
       "phase": "checkout",
-      "items": [
-        {
-          "name": "モンブラン",
-          "price": 200,
-          "quantity": 3
-        },
-        {
-          "name": "メロンクリームソーダ",
-          "price": 200,
-          "quantity": 3
-        }
-      ],
-      "total": 900,
+      "items": [],
+      "total": 0,
       "cash": 0,
       "change": 0
     }
