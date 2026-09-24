@@ -301,6 +301,11 @@
       "phase": "checkout",
       "items": [
         {
+          "name": "マカロン",
+          "price": 200,
+          "quantity": 1
+        },
+        {
           "name": "プリンアラモード",
           "price": 200,
           "quantity": 1
@@ -316,9 +321,9 @@
           "quantity": 1
         }
       ],
-      "total": 500,
-      "cash": 0,
-      "change": 0
+      "total": 600,
+      "cash": 1,
+      "change": -599
     }
   }
 }
