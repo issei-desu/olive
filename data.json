@@ -36,7 +36,7 @@
       "id": "0a0e41ed-6f28-4f29-b008-dc343a8f7b95",
       "name": "マカロン",
       "price": 200,
-      "stock": 999,
+      "stock": 998,
       "category": "食べ物",
       "active": true
     },
@@ -44,7 +44,7 @@
       "id": "deea262b-9819-4b07-a7a9-8fd59be9bd9f",
       "name": "プリンアラモード",
       "price": 200,
-      "stock": 997,
+      "stock": 996,
       "category": "食べ物",
       "active": true
     },
@@ -68,7 +68,7 @@
       "id": "6347e328-6c2a-4330-92ea-d861c1b0ecd1",
       "name": "Hot紅茶",
       "price": 200,
-      "stock": 998,
+      "stock": 997,
       "category": "飲み物",
       "active": true
     },
@@ -92,7 +92,7 @@
       "id": "61f2288c-ffb4-4045-b56e-d64843e1253a",
       "name": "Iceココア",
       "price": 200,
-      "stock": 999,
+      "stock": 998,
       "category": "飲み物",
       "active": true
     },
@@ -231,6 +231,47 @@
           "subtotal": 200
         }
       ]
+    },
+    {
+      "orderNumber": 4,
+      "seatNumber": 4,
+      "orderedAt": "2026-09-24T21:21:18.023Z",
+      "status": "提供待ち",
+      "total": 600,
+      "cash": 1000,
+      "change": 400,
+      "operator": "いちiPad",
+      "servedAt": null,
+      "items": [
+        {
+          "productId": "0a0e41ed-6f28-4f29-b008-dc343a8f7b95",
+          "name": "マカロン",
+          "price": 200,
+          "quantity": 1,
+          "subtotal": 200
+        },
+        {
+          "productId": "deea262b-9819-4b07-a7a9-8fd59be9bd9f",
+          "name": "プリンアラモード",
+          "price": 200,
+          "quantity": 1,
+          "subtotal": 200
+        },
+        {
+          "productId": "6347e328-6c2a-4330-92ea-d861c1b0ecd1",
+          "name": "Hot紅茶",
+          "price": 200,
+          "quantity": 1,
+          "subtotal": 200
+        },
+        {
+          "productId": "61f2288c-ffb4-4045-b56e-d64843e1253a",
+          "name": "Iceココア",
+          "price": 200,
+          "quantity": 1,
+          "subtotal": 200
+        }
+      ]
     }
   ],
   "seats": [
@@ -254,9 +295,9 @@
     },
     {
       "number": 4,
-      "status": "空席",
-      "orderNumber": null,
-      "orderedAt": null
+      "status": "提供待ち",
+      "orderNumber": 4,
+      "orderedAt": "2026-09-24T21:21:18.023Z"
     },
     {
       "number": 5,
@@ -296,34 +337,11 @@
     }
   ],
   "settings": {
-    "nextOrderNumber": 4,
+    "nextOrderNumber": 5,
     "display": {
-      "phase": "checkout",
-      "items": [
-        {
-          "name": "マカロン",
-          "price": 200,
-          "quantity": 1
-        },
-        {
-          "name": "プリンアラモード",
-          "price": 200,
-          "quantity": 1
-        },
-        {
-          "name": "Hot紅茶",
-          "price": 200,
-          "quantity": 1
-        },
-        {
-          "name": "Iceココア",
-          "price": 200,
-          "quantity": 1
-        }
-      ],
-      "total": 600,
-      "cash": 1000,
-      "change": 400
+      "phase": "complete",
+      "orderNumber": 4,
+      "seatNumber": 4
     }
   }
 }
