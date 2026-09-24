@@ -289,10 +289,10 @@
         {
           "name": "チョコケーキ",
           "price": 200,
-          "quantity": 1
+          "quantity": 2
         }
       ],
-      "total": 200,
+      "total": 400,
       "cash": 0,
       "change": 0
     }
