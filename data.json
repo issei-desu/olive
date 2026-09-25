@@ -408,6 +408,18 @@
       "status": "提供待ち",
       "orderNumber": 6,
       "orderedAt": "2026-09-24T21:44:09.396Z"
+    },
+    {
+      "number": 11,
+      "status": "空席",
+      "orderNumber": null,
+      "orderedAt": null
+    },
+    {
+      "number": 12,
+      "status": "空席",
+      "orderNumber": null,
+      "orderedAt": null
     }
   ],
   "settings": {
