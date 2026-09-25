@@ -3,129 +3,145 @@
     {
       "id": "112cb3cf-f947-4c20-86da-1f1ae9577b9b",
       "name": "カラメルカスタード",
+      "category": "食べ物",
       "price": 200,
       "stock": 999,
-      "category": "食べ物",
+      "flavors": [],
       "active": true
     },
     {
       "id": "7f26ca87-0db3-498e-bc05-80a6865ba9e2",
       "name": "モンブラン",
+      "category": "食べ物",
       "price": 200,
       "stock": 997,
-      "category": "食べ物",
+      "flavors": [],
       "active": true
     },
     {
       "id": "cfd53d80-457b-4459-b5a9-b794ded1c403",
       "name": "クリームチーズタルト",
+      "category": "食べ物",
       "price": 200,
       "stock": 997,
-      "category": "食べ物",
+      "flavors": [],
       "active": true
     },
     {
       "id": "c5c846ed-76c7-4e8a-ae08-6f057a57d355",
       "name": "チョコケーキ",
+      "category": "食べ物",
       "price": 200,
       "stock": 999,
-      "category": "食べ物",
+      "flavors": [],
       "active": true
     },
     {
       "id": "0a0e41ed-6f28-4f29-b008-dc343a8f7b95",
       "name": "マカロン",
+      "category": "食べ物",
       "price": 200,
       "stock": 998,
-      "category": "食べ物",
+      "flavors": [],
       "active": true
     },
     {
       "id": "deea262b-9819-4b07-a7a9-8fd59be9bd9f",
       "name": "プリンアラモード",
+      "category": "食べ物",
       "price": 200,
       "stock": 996,
-      "category": "食べ物",
+      "flavors": [],
       "active": true
     },
     {
       "id": "1df3eb7a-d329-4c69-aca2-b95fd585df2c",
       "name": "Hotコーヒー",
+      "category": "飲み物",
       "price": 200,
       "stock": 1000,
-      "category": "飲み物",
+      "flavors": [],
       "active": true
     },
     {
       "id": "b6b522b8-1895-441f-bf29-d8921632df90",
       "name": "Iceコーヒー",
+      "category": "飲み物",
       "price": 200,
       "stock": 997,
-      "category": "飲み物",
+      "flavors": [],
       "active": true
     },
     {
       "id": "6347e328-6c2a-4330-92ea-d861c1b0ecd1",
       "name": "Hot紅茶",
+      "category": "飲み物",
       "price": 200,
       "stock": 997,
-      "category": "飲み物",
+      "flavors": [],
       "active": true
     },
     {
       "id": "e43ad008-02e8-42b9-b280-ee819475dff6",
       "name": "Ice紅茶",
+      "category": "飲み物",
       "price": 200,
       "stock": 1000,
-      "category": "飲み物",
+      "flavors": [],
       "active": true
     },
     {
       "id": "df00fc6d-0c38-4d2b-82e7-c80f3486d2fb",
       "name": "Hotココア",
+      "category": "飲み物",
       "price": 200,
       "stock": 999,
-      "category": "飲み物",
+      "flavors": [],
       "active": true
     },
     {
       "id": "61f2288c-ffb4-4045-b56e-d64843e1253a",
       "name": "Iceココア",
+      "category": "飲み物",
       "price": 200,
       "stock": 997,
-      "category": "飲み物",
+      "flavors": [],
       "active": true
     },
     {
       "id": "de7148e7-1ba3-497d-b3f2-bd31bf7a0b79",
       "name": "カフェオレ(Hot)",
+      "category": "飲み物",
       "price": 200,
       "stock": 1000,
-      "category": "飲み物",
+      "flavors": [],
       "active": true
     },
     {
       "id": "79802922-fe4c-4e2c-8424-943efce0053c",
       "name": "午後の紅茶 ミルクティー",
+      "category": "飲み物",
       "price": 200,
       "stock": 999,
-      "category": "飲み物",
+      "flavors": [],
       "active": true
     },
     {
       "id": "8143731f-790f-47b4-8ef9-f388058886de",
       "name": "オレンジジュース",
+      "category": "飲み物",
       "price": 200,
       "stock": 997,
-      "category": "飲み物",
+      "flavors": [],
       "active": true
     },
     {
       "id": "cfb9113e-022e-4a97-96a2-0655bd968cb4",
       "name": "メロンクリームソーダ",
+      "category": "飲み物",
       "price": 200,
       "stock": 995,
-      "category": "飲み物",
+      "flavors": [],
       "active": true
     },
     {
@@ -134,6 +150,7 @@
       "category": "食べ物",
       "price": 100,
       "stock": 50,
+      "flavors": [],
       "active": true
     }
   ],
