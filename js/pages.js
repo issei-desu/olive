@@ -142,7 +142,7 @@ async function registerPage(){
       });
       return;
     }
-    const key = flavor ? ${id}__ : id;
+    const key = flavor ? (id + "__" + flavor) : id;
     if (getCartItemCount(id) >= p.stock) return;
     cart[key] = (cart[key] || 0) + 1;
     drawProductsAndCart();
@@ -180,7 +180,7 @@ async function registerPage(){
     const entries = Object.entries(cart).map(([key, qty]) => {
       const parts = key.split('__');
       const p = products.find(x => x.id === parts[0]);
-      return p ? { ...p, cartKey: key, flavor: parts[1] || null, name: parts[1] ? ${p.name} () : p.name, quantity: qty } : null;
+      return p ? { ...p, cartKey: key, flavor: parts[1] || null, name: parts[1] ? (p.name + " (" + parts[1] + ")") : p.name, quantity: qty } : null;
     }).filter(Boolean);
     cartList.innerHTML = entries.length ? entries.map(p => `
       <div class="cart-row">
@@ -188,7 +188,7 @@ async function registerPage(){
           <strong>${escapeHtml(p.name)}</strong><br>${money(p.price * p.quantity)}
         </div>
         <div class="quantity">
-          <button data-minus="${p.id}">−</button>
+          <button data-minus="${p.cartKey || p.id}">−</button>
           <b>${p.quantity}</b>
           <button data-add="${p.id}" ${p.quantity >= p.stock ? 'disabled' : ''}>＋</button>
         </div>
@@ -219,7 +219,7 @@ async function registerPage(){
     const entries = Object.entries(cart).map(([key, qty]) => {
       const parts = key.split('__');
       const p = products.find(x => x.id === parts[0]);
-      return p ? { ...p, cartKey: key, flavor: parts[1] || null, name: parts[1] ? ${p.name} () : p.name, quantity: qty } : null;
+      return p ? { ...p, cartKey: key, flavor: parts[1] || null, name: parts[1] ? (p.name + " (" + parts[1] + ")") : p.name, quantity: qty } : null;
     }).filter(Boolean);
     const subtotal = entries.reduce((s, p) => s + p.price * p.quantity, 0);
 
