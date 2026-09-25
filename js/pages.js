@@ -1,4 +1,4 @@
-const app = document.querySelector('#app');
+﻿const app = document.querySelector('#app');
 const page = document.body.dataset.page || 'home';
 
 // -------------------------------------------------------------
@@ -129,6 +129,27 @@ async function registerPage(){
     document.querySelector('#to-seat').onclick = chooseSeat;
   }
 
+    function getCartItemCount(pId) {
+    return Object.keys(cart).filter(k => k === pId || k.startsWith(pId + '__')).reduce((sum, k) => sum + (cart[k] || 0), 0);
+  }
+
+  function handleProductAdd(id, flavor = null) {
+    const p = products.find(x => x.id === id);
+    if (!p) return;
+    if (!flavor && p.flavors && p.flavors.length > 0 && typeof promptFlavorSelection === 'function') {
+      promptFlavorSelection(p, (selected) => {
+        if (selected) handleProductAdd(id, selected);
+      });
+      return;
+    }
+    const key = flavor ? ${id}__ : id;
+    if (getCartItemCount(id) >= p.stock) return;
+    cart[key] = (cart[key] || 0) + 1;
+    drawProductsAndCart();
+    updateTotals();
+    sync();
+  }
+
   function drawProductsAndCart() {
     const prodList = document.querySelector('#products-list');
     prodList.innerHTML = products.map(p => {
@@ -151,15 +172,16 @@ async function registerPage(){
       b.onclick = () => {
         const id = b.dataset.add;
         const p = products.find(x => x.id === id);
-        cart[id] = Math.min((cart[id] || 0) + 1, p.stock);
-        drawProductsAndCart();
-        updateTotals();
-        sync();
+        handleProductAdd(id);
       };
     });
 
     const cartList = document.querySelector('#cart-list');
-    const entries = products.filter(p => cart[p.id]).map(p => ({ ...p, quantity: cart[p.id] }));
+    const entries = Object.entries(cart).map(([key, qty]) => {
+      const parts = key.split('__');
+      const p = products.find(x => x.id === parts[0]);
+      return p ? { ...p, cartKey: key, flavor: parts[1] || null, name: parts[1] ? ${p.name} () : p.name, quantity: qty } : null;
+    }).filter(Boolean);
     cartList.innerHTML = entries.length ? entries.map(p => `
       <div class="cart-row">
         <div>
@@ -177,10 +199,7 @@ async function registerPage(){
       b.onclick = () => {
         const id = b.dataset.add;
         const p = products.find(x => x.id === id);
-        cart[id] = Math.min((cart[id] || 0) + 1, p.stock);
-        drawProductsAndCart();
-        updateTotals();
-        sync();
+        handleProductAdd(id);
       };
     });
 
@@ -197,7 +216,11 @@ async function registerPage(){
   }
 
   function calculateBill() {
-    const entries = products.filter(p => cart[p.id]).map(p => ({ ...p, quantity: cart[p.id] }));
+    const entries = Object.entries(cart).map(([key, qty]) => {
+      const parts = key.split('__');
+      const p = products.find(x => x.id === parts[0]);
+      return p ? { ...p, cartKey: key, flavor: parts[1] || null, name: parts[1] ? ${p.name} () : p.name, quantity: qty } : null;
+    }).filter(Boolean);
     const subtotal = entries.reduce((s, p) => s + p.price * p.quantity, 0);
 
     let foodCount = 0, drinkCount = 0;

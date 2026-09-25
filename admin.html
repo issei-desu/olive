@@ -1,15 +1,180 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>管理 - 文化祭レジ</title>
+  <title>管理画面 - 文化祭POS</title>
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    .admin-container { max-width: 950px; margin: 20px auto; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); font-family: sans-serif; }
+    .table-responsive { overflow-x: auto; margin-top: 15px; }
+    table { width: 100%; border-collapse: collapse; min-width: 650px; }
+    th, td { border: 1px solid #ddd; padding: 8px 10px; text-align: left; }
+    th { background-color: #2E7D32; color: white; }
+    input[type="text"], input[type="number"], select { width: 100%; padding: 6px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; }
+    .btn-bar { margin-top: 20px; display: flex; justify-content: space-between; align-items: center; }
+    .btn-save-all { background: #2E7D32; color: white; border: none; padding: 12px 28px; font-size: 16px; border-radius: 6px; cursor: pointer; font-weight: bold; }
+    .btn-save-all:hover { background: #1B5E20; }
+    .btn-add-row { background: #1976D2; color: white; border: none; padding: 9px 18px; border-radius: 4px; cursor: pointer; font-weight: bold; }
+    .btn-delete { background: #D32F2F; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; }
+    .status-msg { margin-top: 12px; font-weight: bold; font-size: 15px; }
+  </style>
 </head>
-<body data-page="admin">
-  <div id="app"></div>
+<body>
+  <div class="admin-container">
+    <h2>マスターデータ一括管理</h2>
+    
+    <div style="margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+      <label><strong>客席数: </strong></label>
+      <input type="number" id="seatCountInput" style="width: 100px;" min="1" max="100">
+    </div>
+
+    <h3>商品一覧</h3>
+    <p style="font-size: 13px; color: #555;">
+      ※ マカロンなどの味の選択肢はカンマ区切りで入力（例: <code>チョコ,抹茶,イチゴ,バニラ</code>）
+    </p>
+
+    <div class="table-responsive">
+      <table id="productTable">
+        <thead>
+          <tr>
+            <th style="width: 18%;">商品名</th>
+            <th style="width: 14%;">カテゴリ</th>
+            <th style="width: 12%;">価格 (円)</th>
+            <th style="width: 12%;">在庫数</th>
+            <th style="width: 32%;">味・フレーバーの選択肢 (カンマ区切り)</th>
+            <th style="width: 8%;">削除</th>
+          </tr>
+        </thead>
+        <tbody id="productBody"></tbody>
+      </table>
+    </div>
+
+    <div class="btn-bar">
+      <button class="btn-add-row" onclick="addNewProductRow()">＋ 商品を追加</button>
+      <button class="btn-save-all" onclick="saveAllChanges()">変更を一括保存する</button>
+    </div>
+    <div id="statusMsg" class="status-msg"></div>
+  </div>
+
   <script src="js/api.js"></script>
-  <script src="js/app.js"></script>
-  <script src="js/pages.js"></script>
+  <script>
+    let currentDb = null;
+
+    async function loadData() {
+      const status = document.getElementById('statusMsg');
+      status.style.color = '#333';
+      status.innerText = 'データ読み込み中...';
+      try {
+        currentDb = await fetchDb();
+        document.getElementById('seatCountInput').value = (currentDb.seats || []).length;
+        renderProducts(currentDb.products || []);
+        status.innerText = '';
+      } catch (e) {
+        status.style.color = '#D32F2F';
+        status.innerText = '読み込み失敗: ' + e.message;
+      }
+    }
+
+    function renderProducts(products) {
+      const tbody = document.getElementById('productBody');
+      tbody.innerHTML = '';
+      products.forEach((p, idx) => {
+        const flavors = Array.isArray(p.flavors) ? p.flavors.join(',') : (p.flavors || '');
+        const tr = document.createElement('tr');
+        tr.dataset.id = p.id || ('p_' + idx);
+        tr.innerHTML = `
+          <td><input type="text" class="p-name" value="${p.name || ''}"></td>
+          <td>
+            <select class="p-category">
+              <option value="食べ物" ${p.category === '食べ物' ? 'selected' : ''}>食べ物</option>
+              <option value="飲み物" ${p.category === '飲み物' ? 'selected' : ''}>飲み物</option>
+              <option value="デザート" ${p.category === 'デザート' ? 'selected' : ''}>デザート</option>
+            </select>
+          </td>
+          <td><input type="number" class="p-price" value="${p.price || 0}"></td>
+          <td><input type="number" class="p-stock" value="${p.stock || 0}"></td>
+          <td><input type="text" class="p-flavors" placeholder="例: チョコ,抹茶,イチゴ" value="${flavors}"></td>
+          <td><button class="btn-delete" onclick="this.closest('tr').remove()">削除</button></td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function addNewProductRow() {
+      const tbody = document.getElementById('productBody');
+      const tr = document.createElement('tr');
+      tr.dataset.id = 'p_' + Date.now();
+      tr.innerHTML = `
+        <td><input type="text" class="p-name" placeholder="商品名"></td>
+        <td>
+          <select class="p-category">
+            <option value="食べ物">食べ物</option>
+            <option value="飲み物">飲み物</option>
+            <option value="デザート">デザート</option>
+          </select>
+        </td>
+        <td><input type="number" class="p-price" value="300"></td>
+        <td><input type="number" class="p-stock" value="50"></td>
+        <td><input type="text" class="p-flavors" placeholder="例: チョコ,抹茶,イチゴ"></td>
+        <td><button class="btn-delete" onclick="this.closest('tr').remove()">削除</button></td>
+      `;
+      tbody.appendChild(tr);
+    }
+
+    async function saveAllChanges() {
+      const status = document.getElementById('statusMsg');
+      status.style.color = '#333';
+      status.innerText = '一括保存中...';
+
+      try {
+        const rows = document.querySelectorAll('#productBody tr');
+        const updatedProducts = [];
+
+        rows.forEach(tr => {
+          const name = tr.querySelector('.p-name').value.trim();
+          if (!name) return;
+          const category = tr.querySelector('.p-category').value;
+          const price = Number(tr.querySelector('.p-price').value || 0);
+          const stock = Number(tr.querySelector('.p-stock').value || 0);
+          const flavorsRaw = tr.querySelector('.p-flavors').value.trim();
+          const flavors = flavorsRaw ? flavorsRaw.split(',').map(s => s.trim()).filter(Boolean) : [];
+
+          updatedProducts.push({
+            id: tr.dataset.id,
+            name,
+            category,
+            price,
+            stock,
+            flavors,
+            active: true
+          });
+        });
+
+        const newCount = Number(document.getElementById('seatCountInput').value || 0);
+        let seats = currentDb.seats || [];
+        if (newCount > seats.length) {
+          for (let n = seats.length + 1; n <= newCount; n++) {
+            seats.push({ number: n, status: '空席', orderNumber: null, orderedAt: null });
+          }
+        } else if (newCount < seats.length) {
+          seats = seats.slice(0, newCount);
+        }
+
+        currentDb.products = updatedProducts;
+        currentDb.seats = seats;
+
+        await saveDb(currentDb, '一括マスターデータ更新 (admin)');
+        status.style.color = '#2E7D32';
+        status.innerText = '✅ すべての変更を一括保存しました！';
+        setTimeout(() => { status.innerText = ''; }, 3500);
+      } catch (e) {
+        status.style.color = '#D32F2F';
+        status.innerText = '❌ 保存エラー: ' + e.message;
+      }
+    }
+
+    window.onload = loadData;
+  </script>
 </body>
 </html>
