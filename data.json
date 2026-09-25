@@ -127,6 +127,14 @@
       "stock": 995,
       "category": "飲み物",
       "active": true
+    },
+    {
+      "id": "p_1790303453414",
+      "name": "マカロンバニラ",
+      "category": "食べ物",
+      "price": 100,
+      "stock": 50,
+      "active": true
     }
   ],
   "orders": [
