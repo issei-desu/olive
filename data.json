@@ -3583,14 +3583,19 @@
       "phase": "checkout",
       "items": [
         {
+          "name": "プリンアラモード",
+          "price": 200,
+          "quantity": 1
+        },
+        {
           "name": "Hotコーヒー",
           "price": 200,
           "quantity": 1
         }
       ],
-      "total": 200,
-      "cash": 0,
-      "change": 0
+      "total": 300,
+      "cash": 1000,
+      "change": 700
     }
   }
 }
