@@ -522,7 +522,7 @@
     "display": {
       "phase": "checkout",
       "items": [],
-      "total": 0,
+      "total": 200,
       "cash": 0,
       "change": 0
     }
