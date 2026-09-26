@@ -2353,10 +2353,15 @@
           "name": "プリンアラモード",
           "price": 200,
           "quantity": 1
+        },
+        {
+          "name": "オレンジジュース",
+          "price": 200,
+          "quantity": 1
         }
       ],
-      "total": 200,
-      "cash": 0,
+      "total": 300,
+      "cash": 300,
       "change": 0
     }
   }
