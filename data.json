@@ -2566,14 +2566,19 @@
       "phase": "checkout",
       "items": [
         {
+          "name": "クリームチーズタルト",
+          "price": 200,
+          "quantity": 1
+        },
+        {
           "name": "オレンジジュース",
           "price": 200,
           "quantity": 1
         }
       ],
-      "total": 500,
+      "total": 700,
       "cash": 200,
-      "change": -300
+      "change": -500
     }
   }
 }
