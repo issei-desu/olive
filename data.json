@@ -2627,6 +2627,11 @@
       "phase": "checkout",
       "items": [
         {
+          "name": "カラメルカスタード",
+          "price": 200,
+          "quantity": 1
+        },
+        {
           "name": "チョコケーキ",
           "price": 200,
           "quantity": 1
@@ -2647,7 +2652,7 @@
           "quantity": 1
         }
       ],
-      "total": 900,
+      "total": 1000,
       "cash": 0,
       "change": 0
     }
