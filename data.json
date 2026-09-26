@@ -535,7 +535,7 @@
         {
           "name": "Iceココア",
           "price": 200,
-          "quantity": 1
+          "quantity": 2
         },
         {
           "name": "カフェオレ(Hot)",
@@ -543,7 +543,7 @@
           "quantity": 1
         }
       ],
-      "total": 800,
+      "total": 900,
       "cash": 0,
       "change": 0
     }
