@@ -2581,9 +2581,9 @@
           "quantity": 1
         }
       ],
-      "total": 800,
+      "total": 600,
       "cash": 200,
-      "change": -600
+      "change": -400
     }
   }
 }
