@@ -1378,9 +1378,17 @@
   "settings": {
     "nextOrderNumber": 34,
     "display": {
-      "phase": "complete",
-      "orderNumber": 33,
-      "seatNumber": 2
+      "phase": "checkout",
+      "items": [
+        {
+          "name": "チョコケーキ",
+          "price": 200,
+          "quantity": 1
+        }
+      ],
+      "total": 200,
+      "cash": 0,
+      "change": 0
     }
   }
 }
