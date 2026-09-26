@@ -1876,12 +1876,12 @@
       "orderNumber": 53,
       "seatNumber": 14,
       "orderedAt": "2026-09-26T02:27:47.661Z",
-      "status": "提供待ち",
+      "status": "提供済み",
       "total": 0,
       "cash": 200,
       "change": 200,
       "operator": "iti",
-      "servedAt": null,
+      "servedAt": "2026-09-26T02:27:53.133Z",
       "items": []
     }
   ],
@@ -1966,7 +1966,7 @@
     },
     {
       "number": 14,
-      "status": "提供待ち",
+      "status": "提供済み",
       "orderNumber": 53,
       "orderedAt": "2026-09-26T02:27:47.661Z"
     },
