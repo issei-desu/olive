@@ -5,7 +5,7 @@
       "name": "カラメルカスタード",
       "category": "食べ物",
       "price": 200,
-      "stock": 39,
+      "stock": 38,
       "flavors": [],
       "active": true
     },
@@ -111,7 +111,7 @@
       "name": "Iceココア",
       "category": "飲み物",
       "price": 200,
-      "stock": 8,
+      "stock": 7,
       "flavors": [],
       "active": true
     },
@@ -464,6 +464,33 @@
           "subtotal": 200
         }
       ]
+    },
+    {
+      "orderNumber": 11,
+      "seatNumber": 2,
+      "orderedAt": "2026-09-26T00:55:06.950Z",
+      "status": "提供待ち",
+      "total": 300,
+      "cash": 300,
+      "change": 0,
+      "operator": "iti",
+      "servedAt": null,
+      "items": [
+        {
+          "productId": "112cb3cf-f947-4c20-86da-1f1ae9577b9b",
+          "name": "カラメルカスタード",
+          "price": 200,
+          "quantity": 1,
+          "subtotal": 200
+        },
+        {
+          "productId": "61f2288c-ffb4-4045-b56e-d64843e1253a",
+          "name": "Iceココア",
+          "price": 200,
+          "quantity": 1,
+          "subtotal": 200
+        }
+      ]
     }
   ],
   "seats": [
@@ -475,9 +502,9 @@
     },
     {
       "number": 2,
-      "status": "空席",
-      "orderNumber": null,
-      "orderedAt": null
+      "status": "提供待ち",
+      "orderNumber": 11,
+      "orderedAt": "2026-09-26T00:55:06.950Z"
     },
     {
       "number": 3,
@@ -559,24 +586,11 @@
     }
   ],
   "settings": {
-    "nextOrderNumber": 11,
+    "nextOrderNumber": 12,
     "display": {
-      "phase": "checkout",
-      "items": [
-        {
-          "name": "カラメルカスタード",
-          "price": 200,
-          "quantity": 1
-        },
-        {
-          "name": "Iceココア",
-          "price": 200,
-          "quantity": 1
-        }
-      ],
-      "total": 300,
-      "cash": 3,
-      "change": -297
+      "phase": "complete",
+      "orderNumber": 11,
+      "seatNumber": 2
     }
   }
 }
