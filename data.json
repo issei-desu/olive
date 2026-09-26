@@ -1948,9 +1948,17 @@
   "settings": {
     "nextOrderNumber": 52,
     "display": {
-      "phase": "complete",
-      "orderNumber": 51,
-      "seatNumber": 15
+      "phase": "checkout",
+      "items": [
+        {
+          "name": "オレンジジュース",
+          "price": 200,
+          "quantity": 1
+        }
+      ],
+      "total": 200,
+      "cash": 0,
+      "change": 0
     }
   }
 }
