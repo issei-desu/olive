@@ -14,7 +14,7 @@
       "name": "モンブラン",
       "category": "食べ物",
       "price": 200,
-      "stock": 21,
+      "stock": 20,
       "flavors": [],
       "active": true
     },
@@ -23,7 +23,7 @@
       "name": "クリームチーズタルト",
       "category": "食べ物",
       "price": 200,
-      "stock": 13,
+      "stock": 12,
       "flavors": [],
       "active": true
     },
@@ -66,7 +66,7 @@
       "name": "Hotコーヒー",
       "category": "飲み物",
       "price": 200,
-      "stock": 33,
+      "stock": 31,
       "flavors": [],
       "active": true
     },
@@ -129,7 +129,7 @@
       "name": "午後の紅茶 ミルクティー",
       "category": "飲み物",
       "price": 200,
-      "stock": 12,
+      "stock": 11,
       "flavors": [],
       "active": true
     },
@@ -1937,6 +1937,47 @@
           "subtotal": 200
         }
       ]
+    },
+    {
+      "orderNumber": 56,
+      "seatNumber": 4,
+      "orderedAt": "2026-09-26T02:32:58.325Z",
+      "status": "提供待ち",
+      "total": 500,
+      "cash": 1000,
+      "change": 500,
+      "operator": "iti",
+      "servedAt": null,
+      "items": [
+        {
+          "productId": "7f26ca87-0db3-498e-bc05-80a6865ba9e2",
+          "name": "モンブラン",
+          "price": 200,
+          "quantity": 1,
+          "subtotal": 200
+        },
+        {
+          "productId": "cfd53d80-457b-4459-b5a9-b794ded1c403",
+          "name": "クリームチーズタルト",
+          "price": 200,
+          "quantity": 1,
+          "subtotal": 200
+        },
+        {
+          "productId": "1df3eb7a-d329-4c69-aca2-b95fd585df2c",
+          "name": "Hotコーヒー",
+          "price": 200,
+          "quantity": 2,
+          "subtotal": 400
+        },
+        {
+          "productId": "79802922-fe4c-4e2c-8424-943efce0053c",
+          "name": "午後の紅茶 ミルクティー",
+          "price": 200,
+          "quantity": 1,
+          "subtotal": 200
+        }
+      ]
     }
   ],
   "seats": [
@@ -1960,9 +2001,9 @@
     },
     {
       "number": 4,
-      "status": "空席",
-      "orderNumber": null,
-      "orderedAt": null
+      "status": "提供待ち",
+      "orderNumber": 56,
+      "orderedAt": "2026-09-26T02:32:58.325Z"
     },
     {
       "number": 5,
@@ -2032,34 +2073,11 @@
     }
   ],
   "settings": {
-    "nextOrderNumber": 56,
+    "nextOrderNumber": 57,
     "display": {
-      "phase": "checkout",
-      "items": [
-        {
-          "name": "モンブラン",
-          "price": 200,
-          "quantity": 1
-        },
-        {
-          "name": "クリームチーズタルト",
-          "price": 200,
-          "quantity": 1
-        },
-        {
-          "name": "Hotコーヒー",
-          "price": 200,
-          "quantity": 2
-        },
-        {
-          "name": "午後の紅茶 ミルクティー",
-          "price": 200,
-          "quantity": 1
-        }
-      ],
-      "total": 900,
-      "cash": 1000,
-      "change": 100
+      "phase": "complete",
+      "orderNumber": 56,
+      "seatNumber": 4
     }
   }
 }
