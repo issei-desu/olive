@@ -2806,7 +2806,7 @@
         {
           "name": "クリームチーズタルト",
           "price": 200,
-          "quantity": 1
+          "quantity": 2
         },
         {
           "name": "オレンジジュース",
@@ -2814,7 +2814,7 @@
           "quantity": 1
         }
       ],
-      "total": 300,
+      "total": 500,
       "cash": 0,
       "change": 0
     }
