@@ -618,7 +618,7 @@
         {
           "name": "チョコケーキ",
           "price": 200,
-          "quantity": 1
+          "quantity": 2
         },
         {
           "name": "オレンジジュース",
@@ -626,7 +626,7 @@
           "quantity": 1
         }
       ],
-      "total": 700,
+      "total": 900,
       "cash": 0,
       "change": 0
     }
