@@ -1836,7 +1836,7 @@
         {
           "name": "チョコケーキ",
           "price": 200,
-          "quantity": 1
+          "quantity": 2
         },
         {
           "name": "午後の紅茶 ミルクティー",
@@ -1854,7 +1854,7 @@
           "quantity": 1
         }
       ],
-      "total": 900,
+      "total": 1100,
       "cash": 0,
       "change": 0
     }
