@@ -1841,7 +1841,7 @@
         {
           "name": "午後の紅茶 ミルクティー",
           "price": 200,
-          "quantity": 1
+          "quantity": 2
         },
         {
           "name": "オレンジジュース",
@@ -1854,7 +1854,7 @@
           "quantity": 1
         }
       ],
-      "total": 1100,
+      "total": 1200,
       "cash": 0,
       "change": 0
     }
