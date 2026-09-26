@@ -1676,6 +1676,11 @@
           "quantity": 1
         },
         {
+          "name": "Hotコーヒー",
+          "price": 200,
+          "quantity": 1
+        },
+        {
           "name": "Iceコーヒー",
           "price": 200,
           "quantity": 2
@@ -1686,7 +1691,7 @@
           "quantity": 1
         }
       ],
-      "total": 1100,
+      "total": 1200,
       "cash": 0,
       "change": 0
     }
