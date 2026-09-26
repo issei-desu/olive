@@ -1576,10 +1576,10 @@
         {
           "name": "メロンクリームソーダ",
           "price": 200,
-          "quantity": 1
+          "quantity": 2
         }
       ],
-      "total": 600,
+      "total": 800,
       "cash": 0,
       "change": 0
     }
