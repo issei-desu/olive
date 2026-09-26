@@ -609,10 +609,16 @@
     "nextOrderNumber": 13,
     "display": {
       "phase": "checkout",
-      "items": [],
-      "total": 0,
-      "cash": 1,
-      "change": 1
+      "items": [
+        {
+          "name": "クリームチーズタルト",
+          "price": 200,
+          "quantity": 2
+        }
+      ],
+      "total": 400,
+      "cash": 1000,
+      "change": 600
     }
   }
 }
