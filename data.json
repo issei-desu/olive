@@ -3175,8 +3175,14 @@
     "nextOrderNumber": 92,
     "display": {
       "phase": "checkout",
-      "items": [],
-      "total": 0,
+      "items": [
+        {
+          "name": "プリンアラモード",
+          "price": 200,
+          "quantity": 3
+        }
+      ],
+      "total": 600,
       "cash": 0,
       "change": 0
     }
