@@ -3254,15 +3254,15 @@
         {
           "name": "カラメルカスタード",
           "price": 200,
-          "quantity": 2
+          "quantity": 3
         },
         {
           "name": "カフェオレ(Hot)",
           "price": 200,
-          "quantity": 1
+          "quantity": 4
         }
       ],
-      "total": 500,
+      "total": 1100,
       "cash": 0,
       "change": 0
     }
