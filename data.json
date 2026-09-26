@@ -451,14 +451,8 @@
     "nextOrderNumber": 8,
     "display": {
       "phase": "checkout",
-      "items": [
-        {
-          "name": "マカロンバニラ",
-          "price": 100,
-          "quantity": 2
-        }
-      ],
-      "total": 200,
+      "items": [],
+      "total": 0,
       "cash": 0,
       "change": 0
     }
