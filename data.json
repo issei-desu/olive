@@ -2413,7 +2413,7 @@
         {
           "name": "モンブラン",
           "price": 200,
-          "quantity": 1
+          "quantity": 2
         },
         {
           "name": "クリームチーズタルト",
@@ -2421,9 +2421,9 @@
           "quantity": 1
         }
       ],
-      "total": 400,
-      "cash": 0,
-      "change": 0
+      "total": 600,
+      "cash": 1,
+      "change": -599
     }
   }
 }
