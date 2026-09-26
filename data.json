@@ -1306,14 +1306,24 @@
       "phase": "checkout",
       "items": [
         {
-          "name": "Iceコーヒー",
+          "name": "モンブラン",
           "price": 200,
           "quantity": 1
+        },
+        {
+          "name": "チョコケーキ",
+          "price": 200,
+          "quantity": 1
+        },
+        {
+          "name": "Iceコーヒー",
+          "price": 200,
+          "quantity": 2
         }
       ],
-      "total": 200,
-      "cash": 0,
-      "change": 0
+      "total": 600,
+      "cash": 1100,
+      "change": 500
     }
   }
 }
