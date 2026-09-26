@@ -32,7 +32,7 @@
       "name": "チョコケーキ",
       "category": "食べ物",
       "price": 200,
-      "stock": 13,
+      "stock": 12,
       "flavors": [],
       "active": true
     },
@@ -129,7 +129,7 @@
       "name": "午後の紅茶 ミルクティー",
       "category": "飲み物",
       "price": 200,
-      "stock": 18,
+      "stock": 17,
       "flavors": [],
       "active": true
     },
@@ -147,7 +147,7 @@
       "name": "メロンクリームソーダ",
       "category": "飲み物",
       "price": 200,
-      "stock": 11,
+      "stock": 10,
       "flavors": [],
       "active": true
     }
@@ -1172,14 +1172,48 @@
           "subtotal": 400
         }
       ]
+    },
+    {
+      "orderNumber": 31,
+      "seatNumber": 1,
+      "orderedAt": "2026-09-26T01:35:46.645Z",
+      "status": "提供待ち",
+      "total": 200,
+      "cash": 10000,
+      "change": 9800,
+      "operator": "iti",
+      "servedAt": null,
+      "items": [
+        {
+          "productId": "c5c846ed-76c7-4e8a-ae08-6f057a57d355",
+          "name": "チョコケーキ",
+          "price": 200,
+          "quantity": 1,
+          "subtotal": 200
+        },
+        {
+          "productId": "79802922-fe4c-4e2c-8424-943efce0053c",
+          "name": "午後の紅茶 ミルクティー",
+          "price": 200,
+          "quantity": 1,
+          "subtotal": 200
+        },
+        {
+          "productId": "cfb9113e-022e-4a97-96a2-0655bd968cb4",
+          "name": "メロンクリームソーダ",
+          "price": 200,
+          "quantity": 1,
+          "subtotal": 200
+        }
+      ]
     }
   ],
   "seats": [
     {
       "number": 1,
-      "status": "空席",
-      "orderNumber": null,
-      "orderedAt": null
+      "status": "提供待ち",
+      "orderNumber": 31,
+      "orderedAt": "2026-09-26T01:35:46.645Z"
     },
     {
       "number": 2,
@@ -1267,29 +1301,11 @@
     }
   ],
   "settings": {
-    "nextOrderNumber": 31,
+    "nextOrderNumber": 32,
     "display": {
-      "phase": "checkout",
-      "items": [
-        {
-          "name": "チョコケーキ",
-          "price": 200,
-          "quantity": 1
-        },
-        {
-          "name": "午後の紅茶 ミルクティー",
-          "price": 200,
-          "quantity": 1
-        },
-        {
-          "name": "メロンクリームソーダ",
-          "price": 200,
-          "quantity": 1
-        }
-      ],
-      "total": 600,
-      "cash": 1,
-      "change": -599
+      "phase": "complete",
+      "orderNumber": 31,
+      "seatNumber": 1
     }
   }
 }
