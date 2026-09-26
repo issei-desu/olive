@@ -2184,9 +2184,11 @@
   "settings": {
     "nextOrderNumber": 60,
     "display": {
-      "phase": "complete",
-      "orderNumber": 59,
-      "seatNumber": 7
+      "phase": "checkout",
+      "items": [],
+      "total": 0,
+      "cash": 0,
+      "change": 0
     }
   }
 }
