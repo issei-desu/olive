@@ -2640,9 +2640,14 @@
           "name": "Ice紅茶",
           "price": 200,
           "quantity": 2
+        },
+        {
+          "name": "午後の紅茶 ミルクティー",
+          "price": 200,
+          "quantity": 1
         }
       ],
-      "total": 700,
+      "total": 900,
       "cash": 0,
       "change": 0
     }
