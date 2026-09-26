@@ -1102,7 +1102,7 @@
         {
           "name": "モンブラン",
           "price": 200,
-          "quantity": 1
+          "quantity": 2
         },
         {
           "name": "Iceココア",
@@ -1110,7 +1110,7 @@
           "quantity": 1
         }
       ],
-      "total": 500,
+      "total": 700,
       "cash": 0,
       "change": 0
     }
