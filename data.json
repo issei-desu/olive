@@ -3661,9 +3661,11 @@
   "settings": {
     "nextOrderNumber": 109,
     "display": {
-      "phase": "complete",
-      "orderNumber": 108,
-      "seatNumber": 6
+      "phase": "checkout",
+      "items": [],
+      "total": 0,
+      "cash": 0,
+      "change": 0
     }
   }
 }
