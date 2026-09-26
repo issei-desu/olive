@@ -3640,9 +3640,19 @@
           "name": "カラメルカスタード",
           "price": 200,
           "quantity": 1
+        },
+        {
+          "name": "プリンアラモード",
+          "price": 200,
+          "quantity": 1
+        },
+        {
+          "name": "Ice紅茶",
+          "price": 200,
+          "quantity": 1
         }
       ],
-      "total": 200,
+      "total": 500,
       "cash": 0,
       "change": 0
     }
