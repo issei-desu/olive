@@ -2251,14 +2251,19 @@
           "quantity": 1
         },
         {
+          "name": "Hotコーヒー",
+          "price": 200,
+          "quantity": 1
+        },
+        {
           "name": "メロンクリームソーダ",
           "price": 200,
           "quantity": 1
         }
       ],
-      "total": 500,
-      "cash": 0,
-      "change": 0
+      "total": 600,
+      "cash": 1000,
+      "change": 400
     }
   }
 }
