@@ -3025,9 +3025,14 @@
           "name": "Ice紅茶",
           "price": 200,
           "quantity": 1
+        },
+        {
+          "name": "オレンジジュース",
+          "price": 200,
+          "quantity": 1
         }
       ],
-      "total": 1100,
+      "total": 1200,
       "cash": 0,
       "change": 0
     }
