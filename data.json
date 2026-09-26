@@ -3281,10 +3281,15 @@
         {
           "name": "カラメルカスタード",
           "price": 200,
-          "quantity": 1
+          "quantity": 3
+        },
+        {
+          "name": "午後の紅茶 ミルクティー",
+          "price": 200,
+          "quantity": 3
         }
       ],
-      "total": 200,
+      "total": 900,
       "cash": 0,
       "change": 0
     }
