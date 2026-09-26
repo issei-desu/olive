@@ -1482,6 +1482,11 @@
       "phase": "checkout",
       "items": [
         {
+          "name": "モンブラン",
+          "price": 200,
+          "quantity": 1
+        },
+        {
           "name": "チョコケーキ",
           "price": 200,
           "quantity": 1
@@ -1492,7 +1497,7 @@
           "quantity": 1
         }
       ],
-      "total": 300,
+      "total": 500,
       "cash": 0,
       "change": 0
     }
