@@ -1827,10 +1827,36 @@
     "nextOrderNumber": 48,
     "display": {
       "phase": "checkout",
-      "items": [],
-      "total": 0,
-      "cash": 0,
-      "change": 0
+      "items": [
+        {
+          "name": "クリームチーズタルト",
+          "price": 200,
+          "quantity": 1
+        },
+        {
+          "name": "チョコケーキ",
+          "price": 200,
+          "quantity": 2
+        },
+        {
+          "name": "午後の紅茶 ミルクティー",
+          "price": 200,
+          "quantity": 2
+        },
+        {
+          "name": "オレンジジュース",
+          "price": 200,
+          "quantity": 1
+        },
+        {
+          "name": "メロンクリームソーダ",
+          "price": 200,
+          "quantity": 1
+        }
+      ],
+      "total": 1200,
+      "cash": 1,
+      "change": -1199
     }
   }
 }
