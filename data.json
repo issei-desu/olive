@@ -544,8 +544,8 @@
         }
       ],
       "total": 900,
-      "cash": 0,
-      "change": 0
+      "cash": 1,
+      "change": -899
     }
   }
 }
