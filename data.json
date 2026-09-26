@@ -1180,12 +1180,17 @@
           "quantity": 1
         },
         {
+          "name": "Ice紅茶",
+          "price": 200,
+          "quantity": 1
+        },
+        {
           "name": "カフェオレ(Hot)",
           "price": 200,
           "quantity": 1
         }
       ],
-      "total": 500,
+      "total": 600,
       "cash": 0,
       "change": 0
     }
