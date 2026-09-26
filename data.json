@@ -1453,8 +1453,14 @@
     "nextOrderNumber": 37,
     "display": {
       "phase": "checkout",
-      "items": [],
-      "total": 0,
+      "items": [
+        {
+          "name": "カフェオレ(Hot)",
+          "price": 200,
+          "quantity": 1
+        }
+      ],
+      "total": 200,
       "cash": 0,
       "change": 0
     }
