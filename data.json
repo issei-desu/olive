@@ -1024,9 +1024,17 @@
   "settings": {
     "nextOrderNumber": 24,
     "display": {
-      "phase": "complete",
-      "orderNumber": 23,
-      "seatNumber": 3
+      "phase": "checkout",
+      "items": [
+        {
+          "name": "カラメルカスタード",
+          "price": 200,
+          "quantity": 1
+        }
+      ],
+      "total": 200,
+      "cash": 0,
+      "change": 0
     }
   }
 }
