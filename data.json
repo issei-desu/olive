@@ -1133,9 +1133,17 @@
   "settings": {
     "nextOrderNumber": 27,
     "display": {
-      "phase": "complete",
-      "orderNumber": 26,
-      "seatNumber": 11
+      "phase": "checkout",
+      "items": [
+        {
+          "name": "Hotコーヒー",
+          "price": 200,
+          "quantity": 1
+        }
+      ],
+      "total": 200,
+      "cash": 0,
+      "change": 0
     }
   }
 }
