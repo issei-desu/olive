@@ -1093,8 +1093,14 @@
     "nextOrderNumber": 26,
     "display": {
       "phase": "checkout",
-      "items": [],
-      "total": 0,
+      "items": [
+        {
+          "name": "カラメルカスタード",
+          "price": 200,
+          "quantity": 1
+        }
+      ],
+      "total": 200,
       "cash": 0,
       "change": 0
     }
