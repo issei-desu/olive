@@ -75,7 +75,7 @@
       "name": "Iceコーヒー",
       "category": "飲み物",
       "price": 200,
-      "stock": 8,
+      "stock": 6,
       "flavors": [],
       "active": true
     },
@@ -3010,6 +3010,26 @@
           "subtotal": 200
         }
       ]
+    },
+    {
+      "orderNumber": 89,
+      "seatNumber": 2,
+      "orderedAt": "2026-09-26T03:45:25.995Z",
+      "status": "提供待ち",
+      "total": 400,
+      "cash": 400,
+      "change": 0,
+      "operator": "iti",
+      "servedAt": null,
+      "items": [
+        {
+          "productId": "b6b522b8-1895-441f-bf29-d8921632df90",
+          "name": "Iceコーヒー",
+          "price": 200,
+          "quantity": 2,
+          "subtotal": 400
+        }
+      ]
     }
   ],
   "seats": [
@@ -3021,9 +3041,9 @@
     },
     {
       "number": 2,
-      "status": "空席",
-      "orderNumber": null,
-      "orderedAt": null
+      "status": "提供待ち",
+      "orderNumber": 89,
+      "orderedAt": "2026-09-26T03:45:25.995Z"
     },
     {
       "number": 3,
@@ -3105,19 +3125,11 @@
     }
   ],
   "settings": {
-    "nextOrderNumber": 89,
+    "nextOrderNumber": 90,
     "display": {
-      "phase": "checkout",
-      "items": [
-        {
-          "name": "Iceコーヒー",
-          "price": 200,
-          "quantity": 2
-        }
-      ],
-      "total": 400,
-      "cash": 400,
-      "change": 0
+      "phase": "complete",
+      "orderNumber": 89,
+      "seatNumber": 2
     }
   }
 }
