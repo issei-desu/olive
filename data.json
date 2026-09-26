@@ -2749,10 +2749,15 @@
           "name": "Iceコーヒー",
           "price": 200,
           "quantity": 1
+        },
+        {
+          "name": "オレンジジュース",
+          "price": 200,
+          "quantity": 1
         }
       ],
-      "total": 500,
-      "cash": 0,
+      "total": 600,
+      "cash": 600,
       "change": 0
     }
   }
