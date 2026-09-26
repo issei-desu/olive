@@ -1041,12 +1041,12 @@
       "orderNumber": 27,
       "seatNumber": 4,
       "orderedAt": "2026-09-26T01:29:22.335Z",
-      "status": "提供待ち",
+      "status": "提供済み",
       "total": 600,
       "cash": 1000,
       "change": 400,
       "operator": "iti",
-      "servedAt": null,
+      "servedAt": "2026-09-26T01:32:37.263Z",
       "items": [
         {
           "productId": "7f26ca87-0db3-498e-bc05-80a6865ba9e2",
@@ -1134,7 +1134,7 @@
     },
     {
       "number": 4,
-      "status": "提供待ち",
+      "status": "提供済み",
       "orderNumber": 27,
       "orderedAt": "2026-09-26T01:29:22.335Z"
     },
