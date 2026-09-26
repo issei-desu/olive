@@ -5,7 +5,7 @@
       "name": "カラメルカスタード",
       "category": "食べ物",
       "price": 200,
-      "stock": 34,
+      "stock": 33,
       "flavors": [],
       "active": true
     },
@@ -14,7 +14,7 @@
       "name": "モンブラン",
       "category": "食べ物",
       "price": 200,
-      "stock": 38,
+      "stock": 36,
       "flavors": [],
       "active": true
     },
@@ -93,7 +93,7 @@
       "name": "Ice紅茶",
       "category": "飲み物",
       "price": 200,
-      "stock": 24,
+      "stock": 23,
       "flavors": [],
       "active": true
     },
@@ -111,7 +111,7 @@
       "name": "Iceココア",
       "category": "飲み物",
       "price": 200,
-      "stock": 6,
+      "stock": 5,
       "flavors": [],
       "active": true
     },
@@ -995,6 +995,47 @@
           "subtotal": 400
         }
       ]
+    },
+    {
+      "orderNumber": 26,
+      "seatNumber": 11,
+      "orderedAt": "2026-09-26T01:27:08.173Z",
+      "status": "提供待ち",
+      "total": 800,
+      "cash": 1500,
+      "change": 700,
+      "operator": "iti",
+      "servedAt": null,
+      "items": [
+        {
+          "productId": "112cb3cf-f947-4c20-86da-1f1ae9577b9b",
+          "name": "カラメルカスタード",
+          "price": 200,
+          "quantity": 1,
+          "subtotal": 200
+        },
+        {
+          "productId": "7f26ca87-0db3-498e-bc05-80a6865ba9e2",
+          "name": "モンブラン",
+          "price": 200,
+          "quantity": 2,
+          "subtotal": 400
+        },
+        {
+          "productId": "e43ad008-02e8-42b9-b280-ee819475dff6",
+          "name": "Ice紅茶",
+          "price": 200,
+          "quantity": 1,
+          "subtotal": 200
+        },
+        {
+          "productId": "61f2288c-ffb4-4045-b56e-d64843e1253a",
+          "name": "Iceココア",
+          "price": 200,
+          "quantity": 1,
+          "subtotal": 200
+        }
+      ]
     }
   ],
   "seats": [
@@ -1060,9 +1101,9 @@
     },
     {
       "number": 11,
-      "status": "空席",
-      "orderNumber": null,
-      "orderedAt": null
+      "status": "提供待ち",
+      "orderNumber": 26,
+      "orderedAt": "2026-09-26T01:27:08.173Z"
     },
     {
       "number": 12,
@@ -1090,34 +1131,11 @@
     }
   ],
   "settings": {
-    "nextOrderNumber": 26,
+    "nextOrderNumber": 27,
     "display": {
-      "phase": "checkout",
-      "items": [
-        {
-          "name": "カラメルカスタード",
-          "price": 200,
-          "quantity": 1
-        },
-        {
-          "name": "モンブラン",
-          "price": 200,
-          "quantity": 2
-        },
-        {
-          "name": "Ice紅茶",
-          "price": 200,
-          "quantity": 1
-        },
-        {
-          "name": "Iceココア",
-          "price": 200,
-          "quantity": 1
-        }
-      ],
-      "total": 800,
-      "cash": 1,
-      "change": -799
+      "phase": "complete",
+      "orderNumber": 26,
+      "seatNumber": 11
     }
   }
 }
