@@ -1061,11 +1061,6 @@
       "phase": "checkout",
       "items": [
         {
-          "name": "カラメルカスタード",
-          "price": 200,
-          "quantity": 1
-        },
-        {
           "name": "モンブラン",
           "price": 200,
           "quantity": 1
@@ -1076,9 +1071,9 @@
           "quantity": 2
         }
       ],
-      "total": 600,
+      "total": 500,
       "cash": 600,
-      "change": 0
+      "change": 100
     }
   }
 }
