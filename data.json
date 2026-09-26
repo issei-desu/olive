@@ -3138,14 +3138,9 @@
           "name": "Iceコーヒー",
           "price": 200,
           "quantity": 2
-        },
-        {
-          "name": "Iceココア",
-          "price": 200,
-          "quantity": 1
         }
       ],
-      "total": 700,
+      "total": 500,
       "cash": 0,
       "change": 0
     }
