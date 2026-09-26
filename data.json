@@ -57,7 +57,7 @@
       "name": "プリンアラモード",
       "category": "食べ物",
       "price": 200,
-      "stock": 37,
+      "stock": 36,
       "flavors": [],
       "active": true
     },
@@ -93,7 +93,7 @@
       "name": "Ice紅茶",
       "category": "飲み物",
       "price": 200,
-      "stock": 14,
+      "stock": 13,
       "flavors": [],
       "active": true
     },
@@ -2731,6 +2731,33 @@
           "subtotal": 400
         }
       ]
+    },
+    {
+      "orderNumber": 81,
+      "seatNumber": 14,
+      "orderedAt": "2026-09-26T03:24:14.772Z",
+      "status": "提供待ち",
+      "total": 300,
+      "cash": 300,
+      "change": 0,
+      "operator": "iti",
+      "servedAt": null,
+      "items": [
+        {
+          "productId": "deea262b-9819-4b07-a7a9-8fd59be9bd9f",
+          "name": "プリンアラモード",
+          "price": 200,
+          "quantity": 1,
+          "subtotal": 200
+        },
+        {
+          "productId": "e43ad008-02e8-42b9-b280-ee819475dff6",
+          "name": "Ice紅茶",
+          "price": 200,
+          "quantity": 1,
+          "subtotal": 200
+        }
+      ]
     }
   ],
   "seats": [
@@ -2814,9 +2841,9 @@
     },
     {
       "number": 14,
-      "status": "空席",
-      "orderNumber": null,
-      "orderedAt": null
+      "status": "提供待ち",
+      "orderNumber": 81,
+      "orderedAt": "2026-09-26T03:24:14.772Z"
     },
     {
       "number": 15,
@@ -2826,24 +2853,11 @@
     }
   ],
   "settings": {
-    "nextOrderNumber": 81,
+    "nextOrderNumber": 82,
     "display": {
-      "phase": "checkout",
-      "items": [
-        {
-          "name": "プリンアラモード",
-          "price": 200,
-          "quantity": 1
-        },
-        {
-          "name": "Ice紅茶",
-          "price": 200,
-          "quantity": 1
-        }
-      ],
-      "total": 300,
-      "cash": 300,
-      "change": 0
+      "phase": "complete",
+      "orderNumber": 81,
+      "seatNumber": 14
     }
   }
 }
