@@ -2517,8 +2517,14 @@
     "nextOrderNumber": 71,
     "display": {
       "phase": "checkout",
-      "items": [],
-      "total": 400,
+      "items": [
+        {
+          "name": "モンブラン",
+          "price": 200,
+          "quantity": 1
+        }
+      ],
+      "total": 600,
       "cash": 0,
       "change": 0
     }
