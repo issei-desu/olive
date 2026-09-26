@@ -32,7 +32,7 @@
       "name": "チョコケーキ",
       "category": "食べ物",
       "price": 200,
-      "stock": 10,
+      "stock": 9,
       "flavors": [],
       "active": true
     },
