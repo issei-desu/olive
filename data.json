@@ -2950,9 +2950,17 @@
   "settings": {
     "nextOrderNumber": 85,
     "display": {
-      "phase": "complete",
-      "orderNumber": 84,
-      "seatNumber": 1
+      "phase": "checkout",
+      "items": [
+        {
+          "name": "Iceココア",
+          "price": 200,
+          "quantity": 1
+        }
+      ],
+      "total": 200,
+      "cash": 0,
+      "change": 0
     }
   }
 }
