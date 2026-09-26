@@ -1059,10 +1059,16 @@
     "nextOrderNumber": 25,
     "display": {
       "phase": "checkout",
-      "items": [],
-      "total": 0,
+      "items": [
+        {
+          "name": "Hotココア",
+          "price": 200,
+          "quantity": 1
+        }
+      ],
+      "total": 200,
       "cash": 600,
-      "change": 600
+      "change": 400
     }
   }
 }
