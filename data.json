@@ -225,12 +225,12 @@
       "orderNumber": 3,
       "seatNumber": 2,
       "orderedAt": "2026-09-24T20:34:44.185Z",
-      "status": "提供待ち",
+      "status": "提供済み",
       "total": 500,
       "cash": 500,
       "change": 0,
       "operator": "いちiPad",
-      "servedAt": null,
+      "servedAt": "2026-09-26T00:16:45.064Z",
       "items": [
         {
           "productId": "cfd53d80-457b-4459-b5a9-b794ded1c403",
@@ -380,7 +380,7 @@
     },
     {
       "number": 2,
-      "status": "提供待ち",
+      "status": "提供済み",
       "orderNumber": 3,
       "orderedAt": "2026-09-24T20:34:44.185Z"
     },
