@@ -1068,7 +1068,7 @@
         {
           "name": "モンブラン",
           "price": 200,
-          "quantity": 2
+          "quantity": 1
         },
         {
           "name": "Hotココア",
@@ -1076,9 +1076,9 @@
           "quantity": 2
         }
       ],
-      "total": 800,
+      "total": 600,
       "cash": 600,
-      "change": -200
+      "change": 0
     }
   }
 }
