@@ -957,14 +957,8 @@
     "nextOrderNumber": 22,
     "display": {
       "phase": "checkout",
-      "items": [
-        {
-          "name": "チョコケーキ",
-          "price": 200,
-          "quantity": 1
-        }
-      ],
-      "total": 200,
+      "items": [],
+      "total": 0,
       "cash": 0,
       "change": 0
     }
