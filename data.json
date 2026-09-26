@@ -2522,9 +2522,14 @@
           "name": "モンブラン",
           "price": 200,
           "quantity": 1
+        },
+        {
+          "name": "カフェオレ(Hot)",
+          "price": 200,
+          "quantity": 1
         }
       ],
-      "total": 600,
+      "total": 700,
       "cash": 0,
       "change": 0
     }
