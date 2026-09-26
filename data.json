@@ -2347,9 +2347,17 @@
   "settings": {
     "nextOrderNumber": 65,
     "display": {
-      "phase": "complete",
-      "orderNumber": 64,
-      "seatNumber": 1
+      "phase": "checkout",
+      "items": [
+        {
+          "name": "プリンアラモード",
+          "price": 200,
+          "quantity": 1
+        }
+      ],
+      "total": 200,
+      "cash": 0,
+      "change": 0
     }
   }
 }
