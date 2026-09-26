@@ -520,9 +520,11 @@
   "settings": {
     "nextOrderNumber": 10,
     "display": {
-      "phase": "complete",
-      "orderNumber": 9,
-      "seatNumber": 12
+      "phase": "checkout",
+      "items": [],
+      "total": 0,
+      "cash": 0,
+      "change": 0
     }
   }
 }
