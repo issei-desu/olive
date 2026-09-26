@@ -1063,12 +1063,12 @@
         {
           "name": "Hotココア",
           "price": 200,
-          "quantity": 1
+          "quantity": 2
         }
       ],
-      "total": 200,
+      "total": 400,
       "cash": 600,
-      "change": 400
+      "change": 200
     }
   }
 }
