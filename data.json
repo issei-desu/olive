@@ -2150,9 +2150,17 @@
   "settings": {
     "nextOrderNumber": 59,
     "display": {
-      "phase": "complete",
-      "orderNumber": 58,
-      "seatNumber": 6
+      "phase": "checkout",
+      "items": [
+        {
+          "name": "メロンクリームソーダ",
+          "price": 200,
+          "quantity": 1
+        }
+      ],
+      "total": 200,
+      "cash": 0,
+      "change": 0
     }
   }
 }
