@@ -3182,12 +3182,22 @@
           "quantity": 4
         },
         {
+          "name": "Iceコーヒー",
+          "price": 200,
+          "quantity": 2
+        },
+        {
+          "name": "カフェオレ(Hot)",
+          "price": 200,
+          "quantity": 1
+        },
+        {
           "name": "オレンジジュース",
           "price": 200,
           "quantity": 1
         }
       ],
-      "total": 900,
+      "total": 1200,
       "cash": 0,
       "change": 0
     }
