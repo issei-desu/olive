@@ -3107,9 +3107,17 @@
   "settings": {
     "nextOrderNumber": 89,
     "display": {
-      "phase": "complete",
-      "orderNumber": 88,
-      "seatNumber": 7
+      "phase": "checkout",
+      "items": [
+        {
+          "name": "Iceコーヒー",
+          "price": 200,
+          "quantity": 2
+        }
+      ],
+      "total": 400,
+      "cash": 0,
+      "change": 0
     }
   }
 }
