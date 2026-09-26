@@ -3179,10 +3179,15 @@
         {
           "name": "プリンアラモード",
           "price": 200,
-          "quantity": 3
+          "quantity": 4
+        },
+        {
+          "name": "オレンジジュース",
+          "price": 200,
+          "quantity": 1
         }
       ],
-      "total": 600,
+      "total": 900,
       "cash": 0,
       "change": 0
     }
