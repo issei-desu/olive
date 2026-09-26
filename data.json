@@ -1832,9 +1832,9 @@
     },
     {
       "number": 6,
-      "status": "提供済み",
-      "orderNumber": 45,
-      "orderedAt": "2026-09-26T02:10:34.832Z"
+      "status": "空席",
+      "orderNumber": null,
+      "orderedAt": null
     },
     {
       "number": 7,
