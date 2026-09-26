@@ -476,12 +476,12 @@
         {
           "name": "Hotココア",
           "price": 200,
-          "quantity": 1
+          "quantity": 2
         }
       ],
-      "total": 300,
-      "cash": 5,
-      "change": -295
+      "total": 500,
+      "cash": 500,
+      "change": 0
     }
   }
 }
