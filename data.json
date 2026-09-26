@@ -111,7 +111,7 @@
       "name": "Iceココア",
       "category": "飲み物",
       "price": 200,
-      "stock": 0,
+      "stock": 5,
       "flavors": [],
       "active": true
     },
