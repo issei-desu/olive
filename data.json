@@ -23,7 +23,7 @@
       "name": "クリームチーズタルト",
       "category": "食べ物",
       "price": 200,
-      "stock": 20,
+      "stock": 17,
       "flavors": [],
       "active": true
     },
@@ -57,7 +57,7 @@
       "name": "プリンアラモード",
       "category": "食べ物",
       "price": 200,
-      "stock": 45,
+      "stock": 44,
       "flavors": [],
       "active": true
     },
@@ -66,7 +66,7 @@
       "name": "Hotコーヒー",
       "category": "飲み物",
       "price": 200,
-      "stock": 34,
+      "stock": 33,
       "flavors": [],
       "active": true
     },
@@ -75,7 +75,7 @@
       "name": "Iceコーヒー",
       "category": "飲み物",
       "price": 200,
-      "stock": 25,
+      "stock": 23,
       "flavors": [],
       "active": true
     },
@@ -147,7 +147,7 @@
       "name": "メロンクリームソーダ",
       "category": "飲み物",
       "price": 200,
-      "stock": 7,
+      "stock": 6,
       "flavors": [],
       "active": true
     }
@@ -1566,6 +1566,54 @@
           "subtotal": 200
         }
       ]
+    },
+    {
+      "orderNumber": 43,
+      "seatNumber": 3,
+      "orderedAt": "2026-09-26T02:08:06.999Z",
+      "status": "提供待ち",
+      "total": 1200,
+      "cash": 1200,
+      "change": 0,
+      "operator": "iti",
+      "servedAt": null,
+      "items": [
+        {
+          "productId": "cfd53d80-457b-4459-b5a9-b794ded1c403",
+          "name": "クリームチーズタルト",
+          "price": 200,
+          "quantity": 3,
+          "subtotal": 600
+        },
+        {
+          "productId": "deea262b-9819-4b07-a7a9-8fd59be9bd9f",
+          "name": "プリンアラモード",
+          "price": 200,
+          "quantity": 1,
+          "subtotal": 200
+        },
+        {
+          "productId": "1df3eb7a-d329-4c69-aca2-b95fd585df2c",
+          "name": "Hotコーヒー",
+          "price": 200,
+          "quantity": 1,
+          "subtotal": 200
+        },
+        {
+          "productId": "b6b522b8-1895-441f-bf29-d8921632df90",
+          "name": "Iceコーヒー",
+          "price": 200,
+          "quantity": 2,
+          "subtotal": 400
+        },
+        {
+          "productId": "cfb9113e-022e-4a97-96a2-0655bd968cb4",
+          "name": "メロンクリームソーダ",
+          "price": 200,
+          "quantity": 1,
+          "subtotal": 200
+        }
+      ]
     }
   ],
   "seats": [
@@ -1583,9 +1631,9 @@
     },
     {
       "number": 3,
-      "status": "空席",
-      "orderNumber": null,
-      "orderedAt": null
+      "status": "提供待ち",
+      "orderNumber": 43,
+      "orderedAt": "2026-09-26T02:08:06.999Z"
     },
     {
       "number": 4,
@@ -1661,39 +1709,11 @@
     }
   ],
   "settings": {
-    "nextOrderNumber": 43,
+    "nextOrderNumber": 44,
     "display": {
-      "phase": "checkout",
-      "items": [
-        {
-          "name": "クリームチーズタルト",
-          "price": 200,
-          "quantity": 3
-        },
-        {
-          "name": "プリンアラモード",
-          "price": 200,
-          "quantity": 1
-        },
-        {
-          "name": "Hotコーヒー",
-          "price": 200,
-          "quantity": 1
-        },
-        {
-          "name": "Iceコーヒー",
-          "price": 200,
-          "quantity": 2
-        },
-        {
-          "name": "メロンクリームソーダ",
-          "price": 200,
-          "quantity": 1
-        }
-      ],
-      "total": 1200,
-      "cash": 1200,
-      "change": 0
+      "phase": "complete",
+      "orderNumber": 43,
+      "seatNumber": 3
     }
   }
 }
