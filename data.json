@@ -3226,9 +3226,9 @@
     },
     {
       "number": 8,
-      "status": "提供待ち",
-      "orderNumber": 87,
-      "orderedAt": "2026-09-26T03:43:04.044Z"
+      "status": "空席",
+      "orderNumber": null,
+      "orderedAt": null
     },
     {
       "number": 9,
