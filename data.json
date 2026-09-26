@@ -2699,9 +2699,17 @@
   "settings": {
     "nextOrderNumber": 77,
     "display": {
-      "phase": "complete",
-      "orderNumber": 76,
-      "seatNumber": 9
+      "phase": "checkout",
+      "items": [
+        {
+          "name": "クリームチーズタルト",
+          "price": 200,
+          "quantity": 1
+        }
+      ],
+      "total": 200,
+      "cash": 0,
+      "change": 0
     }
   }
 }
