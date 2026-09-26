@@ -2881,9 +2881,14 @@
           "name": "カフェオレ(Hot)",
           "price": 200,
           "quantity": 1
+        },
+        {
+          "name": "午後の紅茶 ミルクティー",
+          "price": 200,
+          "quantity": 1
         }
       ],
-      "total": 800,
+      "total": 1000,
       "cash": 0,
       "change": 0
     }
