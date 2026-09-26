@@ -147,7 +147,7 @@
       "name": "メロンクリームソーダ",
       "category": "飲み物",
       "price": 200,
-      "stock": 18,
+      "stock": 17,
       "flavors": [],
       "active": true
     }
@@ -491,6 +491,26 @@
           "subtotal": 200
         }
       ]
+    },
+    {
+      "orderNumber": 12,
+      "seatNumber": 3,
+      "orderedAt": "2026-09-26T00:57:57.643Z",
+      "status": "提供待ち",
+      "total": 200,
+      "cash": 200,
+      "change": 0,
+      "operator": "iti",
+      "servedAt": null,
+      "items": [
+        {
+          "productId": "cfb9113e-022e-4a97-96a2-0655bd968cb4",
+          "name": "メロンクリームソーダ",
+          "price": 200,
+          "quantity": 1,
+          "subtotal": 200
+        }
+      ]
     }
   ],
   "seats": [
@@ -508,9 +528,9 @@
     },
     {
       "number": 3,
-      "status": "空席",
-      "orderNumber": null,
-      "orderedAt": null
+      "status": "提供待ち",
+      "orderNumber": 12,
+      "orderedAt": "2026-09-26T00:57:57.643Z"
     },
     {
       "number": 4,
@@ -586,19 +606,11 @@
     }
   ],
   "settings": {
-    "nextOrderNumber": 12,
+    "nextOrderNumber": 13,
     "display": {
-      "phase": "checkout",
-      "items": [
-        {
-          "name": "メロンクリームソーダ",
-          "price": 200,
-          "quantity": 1
-        }
-      ],
-      "total": 200,
-      "cash": 2,
-      "change": -198
+      "phase": "complete",
+      "orderNumber": 12,
+      "seatNumber": 3
     }
   }
 }
