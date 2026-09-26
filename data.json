@@ -5,7 +5,7 @@
       "name": "カラメルカスタード",
       "category": "食べ物",
       "price": 200,
-      "stock": 23,
+      "stock": 21,
       "flavors": [],
       "active": true
     },
@@ -57,7 +57,7 @@
       "name": "プリンアラモード",
       "category": "食べ物",
       "price": 200,
-      "stock": 28,
+      "stock": 27,
       "flavors": [],
       "active": true
     },
@@ -102,7 +102,7 @@
       "name": "Hotココア",
       "category": "飲み物",
       "price": 200,
-      "stock": 12,
+      "stock": 11,
       "flavors": [],
       "active": true
     },
@@ -3118,6 +3118,40 @@
           "subtotal": 200
         }
       ]
+    },
+    {
+      "orderNumber": 93,
+      "seatNumber": 6,
+      "orderedAt": "2026-09-26T03:54:00.504Z",
+      "status": "提供待ち",
+      "total": 700,
+      "cash": 700,
+      "change": 0,
+      "operator": "iti",
+      "servedAt": null,
+      "items": [
+        {
+          "productId": "112cb3cf-f947-4c20-86da-1f1ae9577b9b",
+          "name": "カラメルカスタード",
+          "price": 200,
+          "quantity": 2,
+          "subtotal": 400
+        },
+        {
+          "productId": "deea262b-9819-4b07-a7a9-8fd59be9bd9f",
+          "name": "プリンアラモード",
+          "price": 200,
+          "quantity": 1,
+          "subtotal": 200
+        },
+        {
+          "productId": "df00fc6d-0c38-4d2b-82e7-c80f3486d2fb",
+          "name": "Hotココア",
+          "price": 200,
+          "quantity": 1,
+          "subtotal": 200
+        }
+      ]
     }
   ],
   "seats": [
@@ -3153,9 +3187,9 @@
     },
     {
       "number": 6,
-      "status": "空席",
-      "orderNumber": null,
-      "orderedAt": null
+      "status": "提供待ち",
+      "orderNumber": 93,
+      "orderedAt": "2026-09-26T03:54:00.504Z"
     },
     {
       "number": 7,
@@ -3213,29 +3247,11 @@
     }
   ],
   "settings": {
-    "nextOrderNumber": 93,
+    "nextOrderNumber": 94,
     "display": {
-      "phase": "checkout",
-      "items": [
-        {
-          "name": "カラメルカスタード",
-          "price": 200,
-          "quantity": 2
-        },
-        {
-          "name": "プリンアラモード",
-          "price": 200,
-          "quantity": 1
-        },
-        {
-          "name": "Hotココア",
-          "price": 200,
-          "quantity": 1
-        }
-      ],
-      "total": 700,
-      "cash": 700,
-      "change": 0
+      "phase": "complete",
+      "orderNumber": 93,
+      "seatNumber": 6
     }
   }
 }
