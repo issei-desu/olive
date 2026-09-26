@@ -3499,9 +3499,17 @@
   "settings": {
     "nextOrderNumber": 103,
     "display": {
-      "phase": "complete",
-      "orderNumber": 102,
-      "seatNumber": 1
+      "phase": "checkout",
+      "items": [
+        {
+          "name": "オレンジジュース",
+          "price": 200,
+          "quantity": 1
+        }
+      ],
+      "total": 200,
+      "cash": 0,
+      "change": 0
     }
   }
 }
