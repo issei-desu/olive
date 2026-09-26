@@ -2000,9 +2000,11 @@
   "settings": {
     "nextOrderNumber": 55,
     "display": {
-      "phase": "complete",
-      "orderNumber": 54,
-      "seatNumber": 15
+      "phase": "checkout",
+      "items": [],
+      "total": 0,
+      "cash": 0,
+      "change": 0
     }
   }
 }
