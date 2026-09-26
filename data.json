@@ -1734,9 +1734,9 @@
   "seats": [
     {
       "number": 1,
-      "status": "提供済み",
-      "orderNumber": 40,
-      "orderedAt": "2026-09-26T01:59:06.082Z"
+      "status": "空席",
+      "orderNumber": null,
+      "orderedAt": null
     },
     {
       "number": 2,
