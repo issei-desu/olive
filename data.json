@@ -1716,7 +1716,7 @@
         {
           "name": "モンブラン",
           "price": 200,
-          "quantity": 2
+          "quantity": 3
         },
         {
           "name": "Iceコーヒー",
@@ -1734,9 +1734,9 @@
           "quantity": 1
         }
       ],
-      "total": 800,
-      "cash": 26,
-      "change": -774
+      "total": 900,
+      "cash": 0,
+      "change": 0
     }
   }
 }
