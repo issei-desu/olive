@@ -3443,7 +3443,7 @@
         {
           "name": "カラメルカスタード",
           "price": 200,
-          "quantity": 1
+          "quantity": 3
         },
         {
           "name": "カフェオレ(Hot)",
@@ -3451,7 +3451,7 @@
           "quantity": 1
         }
       ],
-      "total": 300,
+      "total": 700,
       "cash": 0,
       "change": 0
     }
