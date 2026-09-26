@@ -1874,9 +1874,17 @@
   "settings": {
     "nextOrderNumber": 49,
     "display": {
-      "phase": "complete",
-      "orderNumber": 48,
-      "seatNumber": 1
+      "phase": "checkout",
+      "items": [
+        {
+          "name": "Hot紅茶",
+          "price": 200,
+          "quantity": 1
+        }
+      ],
+      "total": 200,
+      "cash": 0,
+      "change": 0
     }
   }
 }
