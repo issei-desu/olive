@@ -2081,9 +2081,14 @@
           "name": "クリームチーズタルト",
           "price": 200,
           "quantity": 1
+        },
+        {
+          "name": "Hotコーヒー",
+          "price": 200,
+          "quantity": 1
         }
       ],
-      "total": 200,
+      "total": 300,
       "cash": 0,
       "change": 0
     }
