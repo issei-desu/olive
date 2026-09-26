@@ -443,6 +443,24 @@
       "status": "空席",
       "orderNumber": null,
       "orderedAt": null
+    },
+    {
+      "number": 13,
+      "status": "空席",
+      "orderNumber": null,
+      "orderedAt": null
+    },
+    {
+      "number": 14,
+      "status": "空席",
+      "orderNumber": null,
+      "orderedAt": null
+    },
+    {
+      "number": 15,
+      "status": "空席",
+      "orderNumber": null,
+      "orderedAt": null
     }
   ],
   "settings": {
