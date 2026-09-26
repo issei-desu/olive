@@ -129,7 +129,7 @@
       "name": "午後の紅茶 ミルクティー",
       "category": "飲み物",
       "price": 200,
-      "stock": 15,
+      "stock": 14,
       "flavors": [],
       "active": true
     },
@@ -1655,6 +1655,26 @@
           "subtotal": 200
         }
       ]
+    },
+    {
+      "orderNumber": 45,
+      "seatNumber": 6,
+      "orderedAt": "2026-09-26T02:10:34.832Z",
+      "status": "提供待ち",
+      "total": 0,
+      "cash": 300,
+      "change": 300,
+      "operator": "iti",
+      "servedAt": null,
+      "items": [
+        {
+          "productId": "79802922-fe4c-4e2c-8424-943efce0053c",
+          "name": "午後の紅茶 ミルクティー",
+          "price": 200,
+          "quantity": 1,
+          "subtotal": 200
+        }
+      ]
     }
   ],
   "seats": [
@@ -1690,9 +1710,9 @@
     },
     {
       "number": 6,
-      "status": "空席",
-      "orderNumber": null,
-      "orderedAt": null
+      "status": "提供待ち",
+      "orderNumber": 45,
+      "orderedAt": "2026-09-26T02:10:34.832Z"
     },
     {
       "number": 7,
@@ -1750,19 +1770,11 @@
     }
   ],
   "settings": {
-    "nextOrderNumber": 45,
+    "nextOrderNumber": 46,
     "display": {
-      "phase": "checkout",
-      "items": [
-        {
-          "name": "午後の紅茶 ミルクティー",
-          "price": 200,
-          "quantity": 1
-        }
-      ],
-      "total": 300,
-      "cash": 300,
-      "change": 0
+      "phase": "complete",
+      "orderNumber": 45,
+      "seatNumber": 6
     }
   }
 }
