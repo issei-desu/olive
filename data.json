@@ -2350,6 +2350,11 @@
       "phase": "checkout",
       "items": [
         {
+          "name": "チョコケーキ",
+          "price": 200,
+          "quantity": 1
+        },
+        {
           "name": "プリンアラモード",
           "price": 200,
           "quantity": 1
@@ -2360,9 +2365,9 @@
           "quantity": 1
         }
       ],
-      "total": 300,
+      "total": 500,
       "cash": 300,
-      "change": 0
+      "change": -200
     }
   }
 }
