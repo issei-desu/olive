@@ -138,7 +138,7 @@
       "name": "オレンジジュース",
       "category": "飲み物",
       "price": 200,
-      "stock": 26,
+      "stock": 25,
       "flavors": [],
       "active": true
     },
@@ -1335,6 +1335,26 @@
           "subtotal": 200
         }
       ]
+    },
+    {
+      "orderNumber": 36,
+      "seatNumber": 8,
+      "orderedAt": "2026-09-26T01:45:35.891Z",
+      "status": "提供待ち",
+      "total": 0,
+      "cash": 300,
+      "change": 300,
+      "operator": "iti",
+      "servedAt": null,
+      "items": [
+        {
+          "productId": "8143731f-790f-47b4-8ef9-f388058886de",
+          "name": "オレンジジュース",
+          "price": 200,
+          "quantity": 1,
+          "subtotal": 200
+        }
+      ]
     }
   ],
   "seats": [
@@ -1382,9 +1402,9 @@
     },
     {
       "number": 8,
-      "status": "空席",
-      "orderNumber": null,
-      "orderedAt": null
+      "status": "提供待ち",
+      "orderNumber": 36,
+      "orderedAt": "2026-09-26T01:45:35.891Z"
     },
     {
       "number": 9,
@@ -1430,19 +1450,11 @@
     }
   ],
   "settings": {
-    "nextOrderNumber": 36,
+    "nextOrderNumber": 37,
     "display": {
-      "phase": "checkout",
-      "items": [
-        {
-          "name": "オレンジジュース",
-          "price": 200,
-          "quantity": 1
-        }
-      ],
-      "total": 300,
-      "cash": 300,
-      "change": 0
+      "phase": "complete",
+      "orderNumber": 36,
+      "seatNumber": 8
     }
   }
 }
