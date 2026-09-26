@@ -3027,12 +3027,17 @@
           "quantity": 1
         },
         {
-          "name": "オレンジジュース",
+          "name": "午後の紅茶 ミルクティー",
           "price": 200,
           "quantity": 1
+        },
+        {
+          "name": "オレンジジュース",
+          "price": 200,
+          "quantity": 2
         }
       ],
-      "total": 1200,
+      "total": 1400,
       "cash": 0,
       "change": 0
     }
