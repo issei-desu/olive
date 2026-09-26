@@ -5,7 +5,7 @@
       "name": "カラメルカスタード",
       "category": "食べ物",
       "price": 200,
-      "stock": 11,
+      "stock": 7,
       "flavors": [],
       "active": true
     },
@@ -120,7 +120,7 @@
       "name": "カフェオレ(Hot)",
       "category": "飲み物",
       "price": 200,
-      "stock": 34,
+      "stock": 30,
       "flavors": [],
       "active": true
     },
@@ -3341,6 +3341,33 @@
           "subtotal": 400
         }
       ]
+    },
+    {
+      "orderNumber": 101,
+      "seatNumber": 7,
+      "orderedAt": "2026-09-26T04:04:57.900Z",
+      "status": "提供待ち",
+      "total": 1200,
+      "cash": 1200,
+      "change": 0,
+      "operator": "iti",
+      "servedAt": null,
+      "items": [
+        {
+          "productId": "112cb3cf-f947-4c20-86da-1f1ae9577b9b",
+          "name": "カラメルカスタード",
+          "price": 200,
+          "quantity": 4,
+          "subtotal": 800
+        },
+        {
+          "productId": "de7148e7-1ba3-497d-b3f2-bd31bf7a0b79",
+          "name": "カフェオレ(Hot)",
+          "price": 200,
+          "quantity": 4,
+          "subtotal": 800
+        }
+      ]
     }
   ],
   "seats": [
@@ -3382,9 +3409,9 @@
     },
     {
       "number": 7,
-      "status": "空席",
-      "orderNumber": null,
-      "orderedAt": null
+      "status": "提供待ち",
+      "orderNumber": 101,
+      "orderedAt": "2026-09-26T04:04:57.900Z"
     },
     {
       "number": 8,
@@ -3436,24 +3463,11 @@
     }
   ],
   "settings": {
-    "nextOrderNumber": 101,
+    "nextOrderNumber": 102,
     "display": {
-      "phase": "checkout",
-      "items": [
-        {
-          "name": "カラメルカスタード",
-          "price": 200,
-          "quantity": 4
-        },
-        {
-          "name": "カフェオレ(Hot)",
-          "price": 200,
-          "quantity": 4
-        }
-      ],
-      "total": 1200,
-      "cash": 1200,
-      "change": 0
+      "phase": "complete",
+      "orderNumber": 101,
+      "seatNumber": 7
     }
   }
 }
