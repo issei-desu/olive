@@ -57,7 +57,7 @@
       "name": "プリンアラモード",
       "category": "食べ物",
       "price": 200,
-      "stock": 32,
+      "stock": 28,
       "flavors": [],
       "active": true
     },
@@ -75,7 +75,7 @@
       "name": "Iceコーヒー",
       "category": "飲み物",
       "price": 200,
-      "stock": 4,
+      "stock": 2,
       "flavors": [],
       "active": true
     },
@@ -120,7 +120,7 @@
       "name": "カフェオレ(Hot)",
       "category": "飲み物",
       "price": 200,
-      "stock": 40,
+      "stock": 39,
       "flavors": [],
       "active": true
     },
@@ -138,7 +138,7 @@
       "name": "オレンジジュース",
       "category": "飲み物",
       "price": 200,
-      "stock": 10,
+      "stock": 9,
       "flavors": [],
       "active": true
     },
@@ -3077,6 +3077,47 @@
           "subtotal": 400
         }
       ]
+    },
+    {
+      "orderNumber": 92,
+      "seatNumber": 5,
+      "orderedAt": "2026-09-26T03:50:50.627Z",
+      "status": "提供待ち",
+      "total": 1200,
+      "cash": 1500,
+      "change": 300,
+      "operator": "iti",
+      "servedAt": null,
+      "items": [
+        {
+          "productId": "deea262b-9819-4b07-a7a9-8fd59be9bd9f",
+          "name": "プリンアラモード",
+          "price": 200,
+          "quantity": 4,
+          "subtotal": 800
+        },
+        {
+          "productId": "b6b522b8-1895-441f-bf29-d8921632df90",
+          "name": "Iceコーヒー",
+          "price": 200,
+          "quantity": 2,
+          "subtotal": 400
+        },
+        {
+          "productId": "de7148e7-1ba3-497d-b3f2-bd31bf7a0b79",
+          "name": "カフェオレ(Hot)",
+          "price": 200,
+          "quantity": 1,
+          "subtotal": 200
+        },
+        {
+          "productId": "8143731f-790f-47b4-8ef9-f388058886de",
+          "name": "オレンジジュース",
+          "price": 200,
+          "quantity": 1,
+          "subtotal": 200
+        }
+      ]
     }
   ],
   "seats": [
@@ -3106,9 +3147,9 @@
     },
     {
       "number": 5,
-      "status": "空席",
-      "orderNumber": null,
-      "orderedAt": null
+      "status": "提供待ち",
+      "orderNumber": 92,
+      "orderedAt": "2026-09-26T03:50:50.627Z"
     },
     {
       "number": 6,
@@ -3172,34 +3213,11 @@
     }
   ],
   "settings": {
-    "nextOrderNumber": 92,
+    "nextOrderNumber": 93,
     "display": {
-      "phase": "checkout",
-      "items": [
-        {
-          "name": "プリンアラモード",
-          "price": 200,
-          "quantity": 4
-        },
-        {
-          "name": "Iceコーヒー",
-          "price": 200,
-          "quantity": 2
-        },
-        {
-          "name": "カフェオレ(Hot)",
-          "price": 200,
-          "quantity": 1
-        },
-        {
-          "name": "オレンジジュース",
-          "price": 200,
-          "quantity": 1
-        }
-      ],
-      "total": 1200,
-      "cash": 1,
-      "change": -1199
+      "phase": "complete",
+      "orderNumber": 92,
+      "seatNumber": 5
     }
   }
 }
