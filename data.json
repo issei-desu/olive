@@ -5,7 +5,7 @@
       "name": "カラメルカスタード",
       "category": "食べ物",
       "price": 200,
-      "stock": 999,
+      "stock": 40,
       "flavors": [],
       "active": true
     },
@@ -14,7 +14,7 @@
       "name": "モンブラン",
       "category": "食べ物",
       "price": 200,
-      "stock": 997,
+      "stock": 45,
       "flavors": [],
       "active": true
     },
@@ -23,7 +23,7 @@
       "name": "クリームチーズタルト",
       "category": "食べ物",
       "price": 200,
-      "stock": 997,
+      "stock": 36,
       "flavors": [],
       "active": true
     },
@@ -32,7 +32,7 @@
       "name": "チョコケーキ",
       "category": "食べ物",
       "price": 200,
-      "stock": 999,
+      "stock": 24,
       "flavors": [],
       "active": true
     },
@@ -41,8 +41,15 @@
       "name": "マカロン",
       "category": "食べ物",
       "price": 200,
-      "stock": 998,
-      "flavors": [],
+      "stock": 18,
+      "flavors": [
+        "バニラ",
+        "ラズベリー",
+        "チョコ",
+        "塩キャラメル",
+        "ピスタチオ",
+        "レモン"
+      ],
       "active": true
     },
     {
@@ -50,7 +57,7 @@
       "name": "プリンアラモード",
       "category": "食べ物",
       "price": 200,
-      "stock": 996,
+      "stock": 48,
       "flavors": [],
       "active": true
     },
@@ -59,7 +66,7 @@
       "name": "Hotコーヒー",
       "category": "飲み物",
       "price": 200,
-      "stock": 1000,
+      "stock": 40,
       "flavors": [],
       "active": true
     },
@@ -68,7 +75,7 @@
       "name": "Iceコーヒー",
       "category": "飲み物",
       "price": 200,
-      "stock": 997,
+      "stock": 38,
       "flavors": [],
       "active": true
     },
@@ -77,7 +84,7 @@
       "name": "Hot紅茶",
       "category": "飲み物",
       "price": 200,
-      "stock": 997,
+      "stock": 100,
       "flavors": [],
       "active": true
     },
@@ -86,7 +93,7 @@
       "name": "Ice紅茶",
       "category": "飲み物",
       "price": 200,
-      "stock": 1000,
+      "stock": 28,
       "flavors": [],
       "active": true
     },
@@ -95,7 +102,7 @@
       "name": "Hotココア",
       "category": "飲み物",
       "price": 200,
-      "stock": 999,
+      "stock": 18,
       "flavors": [],
       "active": true
     },
@@ -104,7 +111,7 @@
       "name": "Iceココア",
       "category": "飲み物",
       "price": 200,
-      "stock": 997,
+      "stock": 10,
       "flavors": [],
       "active": true
     },
@@ -113,7 +120,7 @@
       "name": "カフェオレ(Hot)",
       "category": "飲み物",
       "price": 200,
-      "stock": 1000,
+      "stock": 48,
       "flavors": [],
       "active": true
     },
@@ -122,7 +129,7 @@
       "name": "午後の紅茶 ミルクティー",
       "category": "飲み物",
       "price": 200,
-      "stock": 999,
+      "stock": 21,
       "flavors": [],
       "active": true
     },
@@ -131,7 +138,7 @@
       "name": "オレンジジュース",
       "category": "飲み物",
       "price": 200,
-      "stock": 997,
+      "stock": 28,
       "flavors": [],
       "active": true
     },
@@ -140,16 +147,7 @@
       "name": "メロンクリームソーダ",
       "category": "飲み物",
       "price": 200,
-      "stock": 995,
-      "flavors": [],
-      "active": true
-    },
-    {
-      "id": "p_1790303453414",
-      "name": "マカロンバニラ",
-      "category": "食べ物",
-      "price": 100,
-      "stock": 50,
+      "stock": 18,
       "flavors": [],
       "active": true
     }
