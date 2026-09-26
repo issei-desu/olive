@@ -918,7 +918,7 @@
         {
           "name": "モンブラン",
           "price": 200,
-          "quantity": 1
+          "quantity": 2
         },
         {
           "name": "プリンアラモード",
@@ -936,7 +936,7 @@
           "quantity": 1
         }
       ],
-      "total": 900,
+      "total": 1100,
       "cash": 0,
       "change": 0
     }
