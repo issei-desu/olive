@@ -614,11 +614,16 @@
           "name": "クリームチーズタルト",
           "price": 200,
           "quantity": 2
+        },
+        {
+          "name": "チョコケーキ",
+          "price": 200,
+          "quantity": 2
         }
       ],
-      "total": 400,
+      "total": 800,
       "cash": 1000,
-      "change": 600
+      "change": 200
     }
   }
 }
