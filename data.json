@@ -3448,11 +3448,11 @@
         {
           "name": "カフェオレ(Hot)",
           "price": 200,
-          "quantity": 3
+          "quantity": 4
         }
       ],
-      "total": 1100,
-      "cash": 0,
+      "total": 1200,
+      "cash": 1200,
       "change": 0
     }
   }
