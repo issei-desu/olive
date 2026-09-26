@@ -23,7 +23,7 @@
       "name": "クリームチーズタルト",
       "category": "食べ物",
       "price": 200,
-      "stock": 36,
+      "stock": 34,
       "flavors": [],
       "active": true
     },
@@ -32,7 +32,7 @@
       "name": "チョコケーキ",
       "category": "食べ物",
       "price": 200,
-      "stock": 22,
+      "stock": 20,
       "flavors": [],
       "active": true
     },
@@ -138,7 +138,7 @@
       "name": "オレンジジュース",
       "category": "飲み物",
       "price": 200,
-      "stock": 28,
+      "stock": 26,
       "flavors": [],
       "active": true
     },
@@ -511,6 +511,40 @@
           "subtotal": 200
         }
       ]
+    },
+    {
+      "orderNumber": 13,
+      "seatNumber": 4,
+      "orderedAt": "2026-09-26T01:02:32.289Z",
+      "status": "提供待ち",
+      "total": 1000,
+      "cash": 1000,
+      "change": 0,
+      "operator": "iti",
+      "servedAt": null,
+      "items": [
+        {
+          "productId": "cfd53d80-457b-4459-b5a9-b794ded1c403",
+          "name": "クリームチーズタルト",
+          "price": 200,
+          "quantity": 2,
+          "subtotal": 400
+        },
+        {
+          "productId": "c5c846ed-76c7-4e8a-ae08-6f057a57d355",
+          "name": "チョコケーキ",
+          "price": 200,
+          "quantity": 2,
+          "subtotal": 400
+        },
+        {
+          "productId": "8143731f-790f-47b4-8ef9-f388058886de",
+          "name": "オレンジジュース",
+          "price": 200,
+          "quantity": 2,
+          "subtotal": 400
+        }
+      ]
     }
   ],
   "seats": [
@@ -534,9 +568,9 @@
     },
     {
       "number": 4,
-      "status": "空席",
-      "orderNumber": null,
-      "orderedAt": null
+      "status": "提供待ち",
+      "orderNumber": 13,
+      "orderedAt": "2026-09-26T01:02:32.289Z"
     },
     {
       "number": 5,
@@ -606,24 +640,11 @@
     }
   ],
   "settings": {
-    "nextOrderNumber": 13,
+    "nextOrderNumber": 14,
     "display": {
-      "phase": "checkout",
-      "items": [
-        {
-          "name": "クリームチーズタルト",
-          "price": 200,
-          "quantity": 2
-        },
-        {
-          "name": "チョコケーキ",
-          "price": 200,
-          "quantity": 2
-        }
-      ],
-      "total": 800,
-      "cash": 1000,
-      "change": 200
+      "phase": "complete",
+      "orderNumber": 13,
+      "seatNumber": 4
     }
   }
 }
