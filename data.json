@@ -1643,9 +1643,17 @@
   "settings": {
     "nextOrderNumber": 42,
     "display": {
-      "phase": "complete",
-      "orderNumber": 41,
-      "seatNumber": 2
+      "phase": "checkout",
+      "items": [
+        {
+          "name": "Ice紅茶",
+          "price": 200,
+          "quantity": 1
+        }
+      ],
+      "total": 200,
+      "cash": 0,
+      "change": 0
     }
   }
 }
