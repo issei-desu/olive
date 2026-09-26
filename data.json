@@ -14,7 +14,7 @@
       "name": "モンブラン",
       "category": "食べ物",
       "price": 200,
-      "stock": 13,
+      "stock": 12,
       "flavors": [],
       "active": true
     },
@@ -120,7 +120,7 @@
       "name": "カフェオレ(Hot)",
       "category": "飲み物",
       "price": 200,
-      "stock": 43,
+      "stock": 42,
       "flavors": [],
       "active": true
     },
@@ -2419,6 +2419,33 @@
           "subtotal": 200
         }
       ]
+    },
+    {
+      "orderNumber": 71,
+      "seatNumber": 15,
+      "orderedAt": "2026-09-26T03:02:17.697Z",
+      "status": "提供待ち",
+      "total": 300,
+      "cash": 1000,
+      "change": 700,
+      "operator": "iti",
+      "servedAt": null,
+      "items": [
+        {
+          "productId": "7f26ca87-0db3-498e-bc05-80a6865ba9e2",
+          "name": "モンブラン",
+          "price": 200,
+          "quantity": 1,
+          "subtotal": 200
+        },
+        {
+          "productId": "de7148e7-1ba3-497d-b3f2-bd31bf7a0b79",
+          "name": "カフェオレ(Hot)",
+          "price": 200,
+          "quantity": 1,
+          "subtotal": 200
+        }
+      ]
     }
   ],
   "seats": [
@@ -2508,30 +2535,17 @@
     },
     {
       "number": 15,
-      "status": "空席",
-      "orderNumber": null,
-      "orderedAt": null
+      "status": "提供待ち",
+      "orderNumber": 71,
+      "orderedAt": "2026-09-26T03:02:17.697Z"
     }
   ],
   "settings": {
-    "nextOrderNumber": 71,
+    "nextOrderNumber": 72,
     "display": {
-      "phase": "checkout",
-      "items": [
-        {
-          "name": "モンブラン",
-          "price": 200,
-          "quantity": 1
-        },
-        {
-          "name": "カフェオレ(Hot)",
-          "price": 200,
-          "quantity": 1
-        }
-      ],
-      "total": 700,
-      "cash": 1000,
-      "change": 300
+      "phase": "complete",
+      "orderNumber": 71,
+      "seatNumber": 15
     }
   }
 }
