@@ -14,7 +14,7 @@
       "name": "モンブラン",
       "category": "食べ物",
       "price": 200,
-      "stock": 45,
+      "stock": 44,
       "flavors": [],
       "active": true
     },
@@ -102,7 +102,7 @@
       "name": "Hotココア",
       "category": "飲み物",
       "price": 200,
-      "stock": 18,
+      "stock": 16,
       "flavors": [],
       "active": true
     },
@@ -369,14 +369,41 @@
           "subtotal": 200
         }
       ]
+    },
+    {
+      "orderNumber": 8,
+      "seatNumber": 1,
+      "orderedAt": "2026-09-26T00:41:46.476Z",
+      "status": "提供待ち",
+      "total": 500,
+      "cash": 1000,
+      "change": 500,
+      "operator": "reiPC",
+      "servedAt": null,
+      "items": [
+        {
+          "productId": "7f26ca87-0db3-498e-bc05-80a6865ba9e2",
+          "name": "モンブラン",
+          "price": 200,
+          "quantity": 1,
+          "subtotal": 200
+        },
+        {
+          "productId": "df00fc6d-0c38-4d2b-82e7-c80f3486d2fb",
+          "name": "Hotココア",
+          "price": 200,
+          "quantity": 2,
+          "subtotal": 400
+        }
+      ]
     }
   ],
   "seats": [
     {
       "number": 1,
-      "status": "空席",
-      "orderNumber": null,
-      "orderedAt": null
+      "status": "提供待ち",
+      "orderNumber": 8,
+      "orderedAt": "2026-09-26T00:41:46.476Z"
     },
     {
       "number": 2,
@@ -464,24 +491,11 @@
     }
   ],
   "settings": {
-    "nextOrderNumber": 8,
+    "nextOrderNumber": 9,
     "display": {
-      "phase": "checkout",
-      "items": [
-        {
-          "name": "モンブラン",
-          "price": 200,
-          "quantity": 1
-        },
-        {
-          "name": "Hotココア",
-          "price": 200,
-          "quantity": 2
-        }
-      ],
-      "total": 500,
-      "cash": 1000,
-      "change": 500
+      "phase": "complete",
+      "orderNumber": 8,
+      "seatNumber": 1
     }
   }
 }
