@@ -480,8 +480,8 @@
         }
       ],
       "total": 500,
-      "cash": 0,
-      "change": 0
+      "cash": 1000,
+      "change": 500
     }
   }
 }
