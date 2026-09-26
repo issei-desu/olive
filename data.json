@@ -2977,9 +2977,17 @@
   "settings": {
     "nextOrderNumber": 86,
     "display": {
-      "phase": "complete",
-      "orderNumber": 85,
-      "seatNumber": 4
+      "phase": "checkout",
+      "items": [
+        {
+          "name": "モンブラン",
+          "price": 200,
+          "quantity": 1
+        }
+      ],
+      "total": 200,
+      "cash": 0,
+      "change": 0
     }
   }
 }
