@@ -1572,9 +1572,14 @@
           "name": "午後の紅茶 ミルクティー",
           "price": 200,
           "quantity": 1
+        },
+        {
+          "name": "メロンクリームソーダ",
+          "price": 200,
+          "quantity": 1
         }
       ],
-      "total": 500,
+      "total": 600,
       "cash": 0,
       "change": 0
     }
