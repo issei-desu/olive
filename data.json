@@ -14,7 +14,7 @@
       "name": "モンブラン",
       "category": "食べ物",
       "price": 200,
-      "stock": 6,
+      "stock": 5,
       "flavors": [],
       "active": true
     },
@@ -111,7 +111,7 @@
       "name": "Iceココア",
       "category": "飲み物",
       "price": 200,
-      "stock": 2,
+      "stock": 1,
       "flavors": [],
       "active": true
     },
@@ -2853,6 +2853,33 @@
           "subtotal": 600
         }
       ]
+    },
+    {
+      "orderNumber": 85,
+      "seatNumber": 4,
+      "orderedAt": "2026-09-26T03:38:07.518Z",
+      "status": "提供待ち",
+      "total": 300,
+      "cash": 300,
+      "change": 0,
+      "operator": "iti",
+      "servedAt": null,
+      "items": [
+        {
+          "productId": "7f26ca87-0db3-498e-bc05-80a6865ba9e2",
+          "name": "モンブラン",
+          "price": 200,
+          "quantity": 1,
+          "subtotal": 200
+        },
+        {
+          "productId": "61f2288c-ffb4-4045-b56e-d64843e1253a",
+          "name": "Iceココア",
+          "price": 200,
+          "quantity": 1,
+          "subtotal": 200
+        }
+      ]
     }
   ],
   "seats": [
@@ -2876,9 +2903,9 @@
     },
     {
       "number": 4,
-      "status": "空席",
-      "orderNumber": null,
-      "orderedAt": null
+      "status": "提供待ち",
+      "orderNumber": 85,
+      "orderedAt": "2026-09-26T03:38:07.518Z"
     },
     {
       "number": 5,
@@ -2948,24 +2975,11 @@
     }
   ],
   "settings": {
-    "nextOrderNumber": 85,
+    "nextOrderNumber": 86,
     "display": {
-      "phase": "checkout",
-      "items": [
-        {
-          "name": "モンブラン",
-          "price": 200,
-          "quantity": 1
-        },
-        {
-          "name": "Iceココア",
-          "price": 200,
-          "quantity": 1
-        }
-      ],
-      "total": 300,
-      "cash": 300,
-      "change": 0
+      "phase": "complete",
+      "orderNumber": 85,
+      "seatNumber": 4
     }
   }
 }
