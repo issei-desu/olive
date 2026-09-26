@@ -2736,12 +2736,22 @@
       "phase": "checkout",
       "items": [
         {
+          "name": "モンブラン",
+          "price": 200,
+          "quantity": 1
+        },
+        {
+          "name": "クリームチーズタルト",
+          "price": 200,
+          "quantity": 1
+        },
+        {
           "name": "Iceコーヒー",
           "price": 200,
           "quantity": 1
         }
       ],
-      "total": 200,
+      "total": 500,
       "cash": 0,
       "change": 0
     }
