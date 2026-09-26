@@ -1066,14 +1066,19 @@
           "quantity": 1
         },
         {
+          "name": "モンブラン",
+          "price": 200,
+          "quantity": 2
+        },
+        {
           "name": "Hotココア",
           "price": 200,
           "quantity": 2
         }
       ],
-      "total": 500,
+      "total": 800,
       "cash": 600,
-      "change": 100
+      "change": -200
     }
   }
 }
