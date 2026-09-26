@@ -1611,9 +1611,14 @@
           "name": "Hot紅茶",
           "price": 200,
           "quantity": 1
+        },
+        {
+          "name": "Iceココア",
+          "price": 200,
+          "quantity": 1
         }
       ],
-      "total": 700,
+      "total": 800,
       "cash": 0,
       "change": 0
     }
