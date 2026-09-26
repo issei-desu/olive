@@ -991,6 +991,11 @@
           "quantity": 2
         },
         {
+          "name": "クリームチーズタルト",
+          "price": 200,
+          "quantity": 1
+        },
+        {
           "name": "Iceコーヒー",
           "price": 200,
           "quantity": 1
@@ -1001,7 +1006,7 @@
           "quantity": 1
         }
       ],
-      "total": 600,
+      "total": 800,
       "cash": 0,
       "change": 0
     }
