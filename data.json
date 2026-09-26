@@ -1061,14 +1061,19 @@
       "phase": "checkout",
       "items": [
         {
+          "name": "カラメルカスタード",
+          "price": 200,
+          "quantity": 1
+        },
+        {
           "name": "Hotココア",
           "price": 200,
           "quantity": 2
         }
       ],
-      "total": 400,
+      "total": 500,
       "cash": 600,
-      "change": 200
+      "change": 100
     }
   }
 }
