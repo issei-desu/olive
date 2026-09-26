@@ -1968,9 +1968,11 @@
   "settings": {
     "nextOrderNumber": 53,
     "display": {
-      "phase": "complete",
-      "orderNumber": 52,
-      "seatNumber": 14
+      "phase": "checkout",
+      "items": [],
+      "total": 200,
+      "cash": 0,
+      "change": 0
     }
   }
 }
