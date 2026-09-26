@@ -380,9 +380,9 @@
     },
     {
       "number": 2,
-      "status": "提供済み",
-      "orderNumber": 3,
-      "orderedAt": "2026-09-24T20:34:44.185Z"
+      "status": "空席",
+      "orderNumber": null,
+      "orderedAt": null
     },
     {
       "number": 3,
