@@ -1839,12 +1839,17 @@
           "quantity": 1
         },
         {
+          "name": "オレンジジュース",
+          "price": 200,
+          "quantity": 1
+        },
+        {
           "name": "メロンクリームソーダ",
           "price": 200,
           "quantity": 1
         }
       ],
-      "total": 500,
+      "total": 800,
       "cash": 0,
       "change": 0
     }
