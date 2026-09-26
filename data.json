@@ -2637,12 +2637,12 @@
           "quantity": 1
         },
         {
-          "name": "午後の紅茶 ミルクティー",
+          "name": "Ice紅茶",
           "price": 200,
-          "quantity": 1
+          "quantity": 2
         }
       ],
-      "total": 500,
+      "total": 700,
       "cash": 0,
       "change": 0
     }
