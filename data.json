@@ -416,9 +416,9 @@
     },
     {
       "number": 8,
-      "status": "提供済み",
-      "orderNumber": 5,
-      "orderedAt": "2026-09-24T21:26:39.933Z"
+      "status": "空席",
+      "orderNumber": null,
+      "orderedAt": null
     },
     {
       "number": 9,
