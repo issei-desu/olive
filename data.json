@@ -1252,12 +1252,12 @@
         {
           "name": "午後の紅茶 ミルクティー",
           "price": 200,
-          "quantity": 1
+          "quantity": 2
         }
       ],
-      "total": 500,
+      "total": 600,
       "cash": 0,
-      "change": 0
+      "change": -600
     }
   }
 }
