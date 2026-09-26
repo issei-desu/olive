@@ -1433,8 +1433,14 @@
     "nextOrderNumber": 36,
     "display": {
       "phase": "checkout",
-      "items": [],
-      "total": 380,
+      "items": [
+        {
+          "name": "オレンジジュース",
+          "price": 200,
+          "quantity": 1
+        }
+      ],
+      "total": 300,
       "cash": 0,
       "change": 0
     }
