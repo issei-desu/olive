@@ -2034,9 +2034,17 @@
   "settings": {
     "nextOrderNumber": 56,
     "display": {
-      "phase": "complete",
-      "orderNumber": 55,
-      "seatNumber": 3
+      "phase": "checkout",
+      "items": [
+        {
+          "name": "午後の紅茶 ミルクティー",
+          "price": 200,
+          "quantity": 1
+        }
+      ],
+      "total": 200,
+      "cash": 0,
+      "change": 0
     }
   }
 }
