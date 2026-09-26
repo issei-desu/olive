@@ -57,7 +57,7 @@
       "name": "プリンアラモード",
       "category": "食べ物",
       "price": 200,
-      "stock": 43,
+      "stock": 42,
       "flavors": [],
       "active": true
     },
@@ -129,7 +129,7 @@
       "name": "午後の紅茶 ミルクティー",
       "category": "飲み物",
       "price": 200,
-      "stock": 10,
+      "stock": 9,
       "flavors": [],
       "active": true
     },
@@ -2114,6 +2114,33 @@
           "subtotal": 200
         }
       ]
+    },
+    {
+      "orderNumber": 61,
+      "seatNumber": 13,
+      "orderedAt": "2026-09-26T02:41:54.722Z",
+      "status": "提供待ち",
+      "total": 300,
+      "cash": 300,
+      "change": 0,
+      "operator": "iti",
+      "servedAt": null,
+      "items": [
+        {
+          "productId": "deea262b-9819-4b07-a7a9-8fd59be9bd9f",
+          "name": "プリンアラモード",
+          "price": 200,
+          "quantity": 1,
+          "subtotal": 200
+        },
+        {
+          "productId": "79802922-fe4c-4e2c-8424-943efce0053c",
+          "name": "午後の紅茶 ミルクティー",
+          "price": 200,
+          "quantity": 1,
+          "subtotal": 200
+        }
+      ]
     }
   ],
   "seats": [
@@ -2191,9 +2218,9 @@
     },
     {
       "number": 13,
-      "status": "空席",
-      "orderNumber": null,
-      "orderedAt": null
+      "status": "提供待ち",
+      "orderNumber": 61,
+      "orderedAt": "2026-09-26T02:41:54.722Z"
     },
     {
       "number": 14,
@@ -2209,24 +2236,11 @@
     }
   ],
   "settings": {
-    "nextOrderNumber": 61,
+    "nextOrderNumber": 62,
     "display": {
-      "phase": "checkout",
-      "items": [
-        {
-          "name": "プリンアラモード",
-          "price": 200,
-          "quantity": 1
-        },
-        {
-          "name": "午後の紅茶 ミルクティー",
-          "price": 200,
-          "quantity": 1
-        }
-      ],
-      "total": 300,
-      "cash": 300,
-      "change": 0
+      "phase": "complete",
+      "orderNumber": 61,
+      "seatNumber": 13
     }
   }
 }
