@@ -916,6 +916,11 @@
           "quantity": 1
         },
         {
+          "name": "モンブラン",
+          "price": 200,
+          "quantity": 1
+        },
+        {
           "name": "Hotコーヒー",
           "price": 200,
           "quantity": 2
@@ -926,7 +931,7 @@
           "quantity": 2
         }
       ],
-      "total": 900,
+      "total": 1000,
       "cash": 0,
       "change": 0
     }
