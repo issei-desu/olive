@@ -1714,6 +1714,11 @@
       "phase": "checkout",
       "items": [
         {
+          "name": "モンブラン",
+          "price": 200,
+          "quantity": 1
+        },
+        {
           "name": "Iceココア",
           "price": 200,
           "quantity": 1
@@ -1724,7 +1729,7 @@
           "quantity": 1
         }
       ],
-      "total": 400,
+      "total": 500,
       "cash": 0,
       "change": 0
     }
