@@ -911,6 +911,11 @@
       "phase": "checkout",
       "items": [
         {
+          "name": "カラメルカスタード",
+          "price": 200,
+          "quantity": 1
+        },
+        {
           "name": "Hotコーヒー",
           "price": 200,
           "quantity": 2
@@ -918,10 +923,10 @@
         {
           "name": "Iceコーヒー",
           "price": 200,
-          "quantity": 1
+          "quantity": 2
         }
       ],
-      "total": 600,
+      "total": 900,
       "cash": 0,
       "change": 0
     }
